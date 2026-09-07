@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.77">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ja"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta</p>
+<p class="p1"><span class="Apple-converted-space">    </span>name="viewport"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;0.01 SECONDS — K.B. Fanfiction Directory&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>RESET</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #111;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Helvetica Neue",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Helvetica,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Arial,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>HOME</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.home {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100dvh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100dvh;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #111;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>① BACKGROUND IMAGE</p>
+<p class="p1"><span class="Apple-converted-space">       </span>爆豪だけの画像</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.background-image {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit: cover;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-position: center center;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>② PLUS ULTRA</p>
+<p class="p1"><span class="Apple-converted-space">       </span>Plus Ultra + 下線</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.plus-ultra {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 3;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 5%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 46%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 24%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: auto;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>③ ORANGE GRAPHIC</p>
+<p class="p1"><span class="Apple-converted-space">       </span>右下のオレンジのギザギザ</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.orange-graphic {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 3;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: -3%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 5%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 55%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: auto;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>HEADER</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 30;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 5%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 6%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 88%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>DIRECTORY LABEL</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.directory-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 10px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.9;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.28em;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255, 255, 255, 0.88);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>HAMBURGER BUTTON</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 42px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 34px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: transparent;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>-webkit-tap-highlight-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 2px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>transform 0.35s ease,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top 0.35s ease,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opacity 0.25s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button span:nth-child(1) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button span:nth-child(2) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button span:nth-child(3) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 29px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>HAMBURGER → X</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button.active span:nth-child(1) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 16px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: rotate(45deg);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button.active span:nth-child(2) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-button.active span:nth-child(3) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 16px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: rotate(-45deg);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>MAIN TITLE</p>
+<p class="p2"><span class="Apple-converted-space">       </span></p>
+<p class="p1"><span class="Apple-converted-space">       </span>★ 画面の上下中央</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 5;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 5%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 90%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 50%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-50%);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-title h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Times New Roman",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Times,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>serif;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(48px, 14vw, 88px);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 0.9;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-title .seconds {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 18px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(40px, 11.5vw, 78px);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>SUB TITLE</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 13px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 28px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Times New Roman",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Times,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>serif;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.16em;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255, 255, 255, 0.92);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subtitle::before,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subtitle::after {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 1px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 255, 255, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>BOTTOM COPY</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bottom-copy {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 5;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 6%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 6%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 10px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 2.05;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.25em;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255, 255, 255, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bottom-copy::after {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 2px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 15px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e45116;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>MENU OVERLAY</p>
+<p class="p1"><span class="Apple-converted-space">       </span>黒80%</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 20;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0, 0, 0, 0.8);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>visibility: hidden;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opacity 0.35s ease,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>visibility 0.35s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>MENU OPEN</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>visibility: visible;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>MENU LIST</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-list {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 28px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-list li {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(10px);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>opacity 0.3s ease,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>transform 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active .menu-list li {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active .menu-list li:nth-child(1) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition-delay: 0.05s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active .menu-list li:nth-child(2) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition-delay: 0.10s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active .menu-list li:nth-child(3) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition-delay: 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-overlay.active .menu-list li:nth-child(4) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition-delay: 0.20s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-list a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Times New Roman",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Times,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>serif;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.16em;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: opacity 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menu-list a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>SMALL SCREEN</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-height: 700px) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 4%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>/*</p>
+<p class="p1"><span class="Apple-converted-space">        </span>★ top: 61% は削除。</p>
+<p class="p1"><span class="Apple-converted-space">        </span>タイトルは常に画面中央。</p>
+<p class="p1"><span class="Apple-converted-space">      </span>*/</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-title h1 {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 46px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-title .seconds {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 41px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>margin-top: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>margin-top: 18px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.bottom-copy {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>bottom: 5%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.plus-ultra {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 43%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.orange-graphic {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>bottom: 2%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>VERY SMALL WIDTH</p>
+<p class="p1"><span class="Apple-converted-space">    </span>======================================== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 360px) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.directory-label {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 9px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>width: 35px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>height: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button span:nth-child(1) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button span:nth-child(2) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button span:nth-child(3) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button.active span:nth-child(1),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menu-button.active span:nth-child(3) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>top: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-title h1 {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 42px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-title .seconds {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 38px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 11px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.subtitle::before,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.subtitle::after {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.bottom-copy {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 9px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.plus-ultra {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>width: 27%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="home"&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ==================================</p>
+<p class="p1"><span class="Apple-converted-space">         </span>① BACKGROUND</p>
+<p class="p1"><span class="Apple-converted-space">         </span>爆豪だけの画像</p>
+<p class="p1"><span class="Apple-converted-space">    </span>=================================== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img</p>
+<p class="p1"><span class="Apple-converted-space">      </span>class="background-image"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>src="★1枚目・爆豪背景画像のURL★"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alt=""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ==================================</p>
+<p class="p1"><span class="Apple-converted-space">         </span>② PLUS ULTRA</p>
+<p class="p1"><span class="Apple-converted-space">         </span>Plus Ultra + 下線</p>
+<p class="p1"><span class="Apple-converted-space">    </span>=================================== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img</p>
+<p class="p1"><span class="Apple-converted-space">      </span>class="plus-ultra"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>src="★2枚目・PlusUltra透過画像のURL★"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alt=""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ==================================</p>
+<p class="p1"><span class="Apple-converted-space">         </span>③ ORANGE GRAPHIC</p>
+<p class="p1"><span class="Apple-converted-space">         </span>オレンジのギザギザ</p>
+<p class="p1"><span class="Apple-converted-space">    </span>=================================== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img</p>
+<p class="p1"><span class="Apple-converted-space">      </span>class="orange-graphic"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>src="★3枚目・オレンジギザギザ透過画像のURL★"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alt=""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============</p>
+</body>
+</html>
