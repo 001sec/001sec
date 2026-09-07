@@ -1,707 +1,148 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 
-<head>
-  <meta charset="UTF-8">
+<head> <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 
-  <title>About | KATSUKI BAKUGO FANFICTION ARCHIVE</title>
 
 
-  <style>
 
-    /* =========================================
-       RESET
-    ========================================= */
+<title>About | KATSUKI BAKUGO FANFICTION ARCHIVE</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-
-    body {
-      background: #010001;
-      color: #fff;
-
-      font-family:
-        "Helvetica Neue",
-        Helvetica,
-        Arial,
-        sans-serif;
-    }
-
-
-    /* =========================================
-       ABOUT PAGE
-    ========================================= */
-
-    .about-page {
-      position: relative;
-
-      width: 100%;
-      height: 100dvh;
-
-      overflow: hidden;
-
-      background: #010001;
-    }
-
-
-    /* =========================================
-       BACKGROUND
-       INDEXと完全に同じ
-    ========================================= */
-
-    .background-image {
-      position: absolute;
-
-      top: 0;
-      right: 0;
-
-      height: 100%;
-      width: auto;
-
-      z-index: 1;
-    }
-
-
-    /* =========================================
-       HEADER
-       INDEXと完全に同じ
-    ========================================= */
-
-    .header {
-      position: absolute;
-
-      z-index: 30;
-
-      top: 5%;
-      left: 6%;
-
-      width: 88%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-
-    /* =========================================
-       LEFT TOP TEXT
-    ========================================= */
-
-    .directory-label {
-      font-size: 10px;
-
-      font-weight: 300;
-
-      line-height: 1.9;
-
-      letter-spacing: 0.28em;
-
-      color: rgba(255, 255, 255, 0.88);
-    }
-
-
-    /* =========================================
-       MENU BUTTON
-       INDEXと完全に同じ
-    ========================================= */
-
-    .menu-button {
-      position: relative;
-
-      width: 42px;
-      height: 34px;
-
-      padding: 0;
-
-      border: none;
-
-      background: transparent;
-
-      cursor: pointer;
-
-      -webkit-tap-highlight-color: transparent;
-
-      z-index: 40;
-    }
-
-
-    .menu-button span {
-      position: absolute;
-
-      left: 0;
-
-      width: 100%;
-      height: 2px;
-
-      background: #fff;
-
-      transition:
-        transform 0.35s ease,
-        top 0.35s ease,
-        opacity 0.25s ease;
-    }
-
-
-    .menu-button span:nth-child(1) {
-      top: 3px;
-    }
-
-
-    .menu-button span:nth-child(2) {
-      top: 16px;
-    }
-
-
-    .menu-button span:nth-child(3) {
-      top: 29px;
-    }
-
-
-    /* =========================================
-       ☰ → ×
-       INDEXと完全に同じ
-    ========================================= */
-
-    .menu-button.active span:nth-child(1) {
-      top: 16px;
-
-      transform: rotate(45deg);
-    }
-
-
-    .menu-button.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-
-    .menu-button.active span:nth-child(3) {
-      top: 16px;
-
-      transform: rotate(-45deg);
-    }
-
-
-    /* =========================================
-       ABOUT TITLE
-       INDEXの 0.01 / SECONDS と同じ
-    ========================================= */
-
-    .about-title {
-      position: absolute;
-
-      z-index: 5;
-
-      top: 50%;
-      left: 5%;
-
-      width: 90%;
-
-      transform: translateY(-50%);
-
-      text-align: center;
-    }
-
-
-    .about-title h1 {
-      font-family:
-        "Times New Roman",
-        Times,
-        serif;
-
-      font-size: clamp(48px, 14vw, 88px);
-
-      font-weight: 400;
-
-      line-height: 0.9;
-
-      letter-spacing: 0.08em;
-
-      color: #fff;
-    }
-
-
-    /* =========================================
-       ABOUT IMAGE
-       赤い「About」画像
-    ========================================= */
-
-    .about-image {
-      position: absolute;
-
-      z-index: 4;
-
-      left: 5%;
-      top: 27%;
-
-      width: auto;
-      height: 14%;
-
-      pointer-events: none;
-    }
-
-
-    /* =========================================
-       BACK TO TOP
-       INDEXのBOTTOM COPYと完全に同じ
-    ========================================= */
-
-    .back-to-top {
-      position: absolute;
-
-      z-index: 5;
-
-      left: 6%;
-      bottom: 6%;
-
-      font-size: 10px;
-
-      font-weight: 300;
-
-      line-height: 2.05;
-
-      letter-spacing: 0.25em;
-
-      color: rgba(255, 255, 255, 0.9);
-
-      text-decoration: none;
-    }
-
-
-    /* =========================================
-       RED LINE
-       INDEXのBOTTOM COPYと完全に同じ
-    ========================================= */
-
-    .back-to-top::after {
-      content: "";
-
-      display: block;
-
-      width: 30px;
-      height: 2px;
-
-      margin-top: 15px;
-
-      background: #e45116;
-    }
-
-
-    /* =========================================
-       MENU OVERLAY
-       INDEXと完全に同じ
-    ========================================= */
-
-    .menu-overlay {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 20;
-
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-
-      background: rgba(0, 0, 0, 0.8);
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      pointer-events: none;
-
-      transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-    }
-
-
-    /* =========================================
-       MENU OPEN
-    ========================================= */
-
-    .menu-overlay.active {
-      opacity: 1;
-
-      visibility: visible;
-
-      pointer-events: auto;
-    }
-
-
-    /* =========================================
-       MENU LIST
-       INDEXと完全に同じ
-    ========================================= */
-
-    .menu-list {
-      list-style: none;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      gap: 28px;
-
-      text-align: center;
-    }
-
-
-    .menu-list li {
-      opacity: 0;
-
-      transform: translateY(10px);
-
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-    }
-
-
-    .menu-overlay.active .menu-list li {
-      opacity: 1;
-
-      transform: translateY(0);
-    }
-
-
-    .menu-overlay.active .menu-list li:nth-child(1) {
-      transition-delay: 0.05s;
-    }
-
-
-    .menu-overlay.active .menu-list li:nth-child(2) {
-      transition-delay: 0.10s;
-    }
-
-
-    .menu-overlay.active .menu-list li:nth-child(3) {
-      transition-delay: 0.15s;
-    }
-
-
-    .menu-overlay.active .menu-list li:nth-child(4) {
-      transition-delay: 0.20s;
-    }
-
-
-    .menu-list a {
-      display: block;
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-family:
-        "Times New Roman",
-        Times,
-        serif;
-
-      font-size: 20px;
-
-      font-weight: 400;
-
-      letter-spacing: 0.16em;
-
-      transition: opacity 0.2s ease;
-    }
-
-
-    .menu-list a:hover {
-      opacity: 0.6;
-    }
-
-
-    /* =========================================
-       SMALL HEIGHT
-       INDEXと同じ考え方
-    ========================================= */
-
-    @media (max-height: 700px) {
-
-      .header {
-        top: 4%;
-      }
-
-
-      .about-title h1 {
-        font-size: 46px;
-      }
-
-
-      .back-to-top {
-        bottom: 5%;
-      }
-
-
-      .about-image {
-        top: 43%;
-      }
-
-    }
-
-
-    /* =========================================
-       VERY SMALL WIDTH
-    ========================================= */
-
-    @media (max-width: 360px) {
-
-      .directory-label {
-        font-size: 9px;
-      }
-
-
-      .menu-button {
-        width: 35px;
-        height: 28px;
-      }
-
-
-      .menu-button span:nth-child(1) {
-        top: 2px;
-      }
-
-
-      .menu-button span:nth-child(2) {
-        top: 13px;
-      }
-
-
-      .menu-button span:nth-child(3) {
-        top: 24px;
-      }
-
-
-      .menu-button.active span:nth-child(1),
-      .menu-button.active span:nth-child(3) {
-        top: 13px;
-      }
-
-
-      .about-title h1 {
-        font-size: 42px;
-      }
-
-
-      .back-to-top {
-        font-size: 9px;
-      }
-
-
-      .about-image {
-        width: 27%;
-      }
-
-    }
-
-  </style>
+<style> /* ========================================= RESET ========================================= */ * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 100%; height: 100%; overflow: hidden; } body { background: #010001; color: #fff; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; } /* ========================================= ABOUT PAGE ========================================= */ .about-page { position: relative; width: 100%; height: 100dvh; overflow: hidden; background: #010001; } /* ========================================= BACKGROUND ========================================= */ .background-image { position: absolute; top: 0; right: 0; height: 100%; width: auto; z-index: 1; } /* ========================================= HEADER ========================================= */ .header { position: absolute; z-index: 30; top: 5%; left: 6%; width: 88%; display: flex; justify-content: space-between; align-items: flex-start; } /* ========================================= LEFT TOP TEXT ========================================= */ .directory-label { font-size: 10px; font-weight: 300; line-height: 1.9; letter-spacing: 0.28em; color: rgba(255, 255, 255, 0.88); } /* ========================================= MENU BUTTON ========================================= */ .menu-button { position: relative; width: 42px; height: 34px; padding: 0; border: none; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; z-index: 40; } .menu-button span { position: absolute; left: 0; width: 100%; height: 2px; background: #fff; transition: transform 0.35s ease, top 0.35s ease, opacity 0.25s ease; } .menu-button span:nth-child(1) { top: 3px; } .menu-button span:nth-child(2) { top: 16px; } .menu-button span:nth-child(3) { top: 29px; } /* ========================================= ☰ → × ========================================= */ .menu-button.active span:nth-child(1) { top: 16px; transform: rotate(45deg); } .menu-button.active span:nth-child(2) { opacity: 0; } .menu-button.active span:nth-child(3) { top: 16px; transform: rotate(-45deg); } /* ========================================= ABOUT CONTENT 全体を中央付近にまとめる ========================================= */ .about-content { position: absolute; z-index: 5; top: 20%; left: 5%; width: 90%; text-align: center; } /* ========================================= ABOUT IMAGE 左右位置は元のまま ========================================= */ .about-image { position: absolute; z-index: 4; left: 5%; top: 20%; width: auto; height: 14%; pointer-events: none; } /* ========================================= ABOUT TITLE ========================================= */ .about-title { margin-top: 20vh; width: 100%; } .about-title h1 { font-family: "Times New Roman", Times, serif; font-size: clamp(48px, 14vw, 88px); font-weight: 400; line-height: 0.9; letter-spacing: 0.08em; color: #fff; } /* ========================================= ABOUT SUB TITLE ========================================= */ .about-subtitle { margin-top: 30px; font-family: "Times New Roman", Times, serif; font-size: 13px; font-weight: 400; letter-spacing: 0.18em; line-height: 1.8; color: rgba(255, 255, 255, 0.92); } /* ========================================= ABOUT DESCRIPTION ========================================= */ .about-text { margin-top: 20px; font-size: 11px; font-weight: 300; letter-spacing: 0.14em; line-height: 2.15; color: rgba(255, 255, 255, 0.78); text-align: center; } /* ========================================= BACK TO TOP ========================================= */ .back-to-top { position: absolute; z-index: 5; left: 6%; bottom: 6%; font-size: 10px; font-weight: 300; line-height: 2.05; letter-spacing: 0.25em; color: rgba(255, 255, 255, 0.9); text-decoration: none; } /* ========================================= RED LINE ========================================= */ .back-to-top::after { content: ""; display: block; width: 30px; height: 2px; margin-top: 15px; background: #e45116; } /* ========================================= MENU OVERLAY ========================================= */ .menu-overlay { position: absolute; inset: 0; z-index: 20; display: flex; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.8); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.35s ease, visibility 0.35s ease; } /* ========================================= MENU OPEN ========================================= */ .menu-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; } /* ========================================= MENU LIST ========================================= */ .menu-list { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; } .menu-list li { opacity: 0; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease; } .menu-overlay.active .menu-list li { opacity: 1; transform: translateY(0); } .menu-overlay.active .menu-list li:nth-child(1) { transition-delay: 0.05s; } .menu-overlay.active .menu-list li:nth-child(2) { transition-delay: 0.10s; } .menu-overlay.active .menu-list li:nth-child(3) { transition-delay: 0.15s; } .menu-overlay.active .menu-list li:nth-child(4) { transition-delay: 0.20s; } .menu-list a { display: block; color: #fff; text-decoration: none; font-family: "Times New Roman", Times, serif; font-size: 20px; font-weight: 400; letter-spacing: 0.16em; transition: opacity 0.2s ease; } .menu-list a:hover { opacity: 0.6; } /* ========================================= SMALL HEIGHT ========================================= */ @media (max-height: 700px) { .header { top: 4%; } .about-image { top: 18%; height: 12%; } .about-content { top: 13%; } .about-title { margin-top: 20vh; } .about-title h1 { font-size: 46px; } .about-subtitle { margin-top: 24px; font-size: 12px; } .about-text { margin-top: 14px; font-size: 10px; line-height: 1.9; } .back-to-top { bottom: 5%; } } /* ========================================= VERY SMALL WIDTH ========================================= */ @media (max-width: 360px) { .directory-label { font-size: 9px; } .menu-button { width: 35px; height: 28px; } .menu-button span:nth-child(1) { top: 2px; } .menu-button span:nth-child(2) { top: 13px; } .menu-button span:nth-child(3) { top: 24px; } .menu-button.active span:nth-child(1), .menu-button.active span:nth-child(3) { top: 13px; } .about-image { width: 27%; height: auto; top: 18%; } .about-content { top: 11%; } .about-title { margin-top: 19vh; } .about-title h1 { font-size: 42px; } .about-subtitle { margin-top: 22px; font-size: 11px; letter-spacing: 0.13em; } .about-text { margin-top: 13px; padding: 0 8px; font-size: 9px; line-height: 2; letter-spacing: 0.1em; } .back-to-top { font-size: 9px; } } </style>
 
 </head>
 
-
 <body>
 
+<main class="about-page">
 
-  <main class="about-page">
+<!-- =====================================
+     BACKGROUND
+====================================== -->
 
+<img
+  class="background-image"
+  src="895.jpg"
+  alt=""
+>
 
-    <!-- =====================================
-         BACKGROUND
-         INDEXと同じ 895.jpg
-    ====================================== -->
 
-    <img
-      class="background-image"
-      src="895.jpg"
-      alt=""
-    >
+<!-- =====================================
+     ABOUT IMAGE
+     KATSUKI BAKUGO... の下あたり
+====================================== -->
 
+<img
+  class="about-image"
+  src="about.png"
+  alt="About"
+>
 
-    <!-- =====================================
-         ABOUT IMAGE
-         赤い「About」
-    ====================================== -->
 
-    <img
-      class="about-image"
-      src="about.png"
-      alt="About"
-    >
+<!-- =====================================
+     ABOUT CONTENT
+====================================== -->
 
+<section class="about-content">
 
-    <!-- =====================================
-         HEADER
-    ====================================== -->
 
-    <header class="header">
+  <!-- ABOUT -->
 
+  <div class="about-title">
 
-      <!-- 左上 -->
+    <h1>
+      ABOUT
+    </h1>
 
-      <div class="directory-label">
+  </div>
 
-        KATSUKI BAKUGO<br>
-        FANFICTION<br>
-        ARCHIVE
 
-      </div>
+  <!-- サブタイトル -->
 
+  <div class="about-subtitle">
 
-      <!-- ハンバーガー -->
+    ー このサイトについて ー
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="メニューを開く"
-        aria-expanded="false"
-      >
+  </div>
 
-        <span></span>
-        <span></span>
-        <span></span>
 
-      </button>
+  <!-- 説明文 -->
 
+  <p class="about-text">
 
-    </header>
+    En.の書く、爆豪勝己の名前変換サイトです。<br>
+    ダイナマイトへの愛と、妄想と、<br>
+    少しの自己表現を込めて。<br>
+    どうぞ、のんびりしていってください。
 
+  </p>
 
-    <!-- =====================================
-         ABOUT TITLE
-    ====================================== -->
 
-    <section class="about-title">
+</section>
 
-      <h1>
-        ABOUT
-      </h1>
 
-    </section>
+<!-- =====================================
+     BACK TO TOP
+====================================== -->
 
+<a
+  class="back-to-top"
+  href="index.html"
+>
+  BACK TO TOP
+</a>
 
-    <!-- =====================================
-         BACK TO TOP
-    ====================================== -->
 
-    <a
-      class="back-to-top"
-      href="index.html"
-    >
-      BACK TO TOP
-    </a>
+<!-- =====================================
+     MENU
+====================================== -->
 
+<nav
+  class="menu-overlay"
+  id="menuOverlay"
+  aria-hidden="true"
+>
 
-    <!-- =====================================
-         MENU
-    ====================================== -->
+  <ul class="menu-list">
 
-    <nav
-      class="menu-overlay"
-      id="menuOverlay"
-      aria-hidden="true"
-    >
+    <li>
+      <a href="index.html">
+        index
+      </a>
+    </li>
 
+    <li>
+      <a href="about.html">
+        about
+      </a>
+    </li>
 
-      <ul class="menu-list">
+    <li>
+      <a href="main.html">
+        main
+      </a>
+    </li>
 
+    <li>
+      <a href="en.html">
+        En.
+      </a>
+    </li>
 
-        <li>
-          <a href="index.html">
-            index
-          </a>
-        </li>
+  </ul>
 
+</nav>
 
-        <li>
-          <a href="about.html">
-            about
-          </a>
-        </li>
+</main>
 
+<!-- ===================================== JAVASCRIPT メニュー開閉 ====================================== -->
 
-        <li>
-          <a href="main.html">
-            main
-          </a>
-        </li>
-
-
-        <li>
-          <a href="en.html">
-            En.
-          </a>
-        </li>
-
-
-      </ul>
-
-
-    </nav>
-
-
-  </main>
-
-
-  <!-- =====================================
-       JAVASCRIPT
-       メニュー開閉
-  ====================================== -->
-
-  <script>
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const menuOverlay =
-      document.getElementById("menuOverlay");
-
-
-    menuButton.addEventListener("click", function () {
-
-      const isOpen =
-        menuButton.classList.toggle("active");
-
-
-      menuOverlay.classList.toggle("active");
-
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        isOpen
-      );
-
-
-      menuOverlay.setAttribute(
-        "aria-hidden",
-        !isOpen
-      );
-
-    });
-
-  </script>
-
+<script> const menuButton = document.getElementById("menuButton"); const menuOverlay = document.getElementById("menuOverlay"); menuButton.addEventListener("click", function () { const isOpen = menuButton.classList.toggle("active"); menuOverlay.classList.toggle("active"); menuButton.setAttribute( "aria-expanded", isOpen ); menuOverlay.setAttribute( "aria-hidden", !isOpen ); }); </script>
 
 </body>
 
