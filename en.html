@@ -79,6 +79,27 @@
     }
 
 
+
+    /* =========================================
+       ORANGE GRAPHIC
+       INDEX / ABOUT と同じ右下配置
+    ========================================= */
+
+    .orange-graphic {
+      position: absolute;
+
+      z-index: 3;
+
+      right: 0%;
+      bottom: 5%;
+
+      width: auto;
+      height: 25%;
+
+      pointer-events: none;
+    }
+
+
     /* =========================================
        HEADER
        INDEXと完全に同じ
@@ -248,7 +269,7 @@
       z-index: 4;
 
       left: 5%;
-      top: 15%;
+      top: 19%;
 
       width: auto;
       height: 12%;
@@ -439,6 +460,10 @@
 
     @media (max-height: 700px) {
 
+      .orange-graphic {
+        bottom: 2%;
+      }
+
       .header {
         top: 4%;
       }
@@ -455,7 +480,7 @@
 
 
       .about-image {
-        top: 20%;
+        top: 22%;
       }
 
     }
@@ -672,8 +697,15 @@
 
     <img
       class="background-image"
-      src="895.jpg"
+      src="images/895.jpg"
       alt=""
+    >
+
+    <img
+      class="orange-graphic"
+      src="images/zigzag.png"
+      alt=""
+      aria-hidden="true"
     >
 
 
@@ -684,7 +716,7 @@
 
     <img
       class="about-image"
-      src="en.png"
+      src="images/en.png"
       alt="En."
     >
 
