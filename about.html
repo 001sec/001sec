@@ -208,7 +208,7 @@
 
       z-index: 5;
 
-      top: 32%;
+      top: 28%;
       left: 5%;
 
       width: 90%;
@@ -515,6 +515,139 @@
 
     }
 
+
+    /* =========================================
+       ABOUT CONTENT
+       紹介文・サブタイトル・署名
+    ========================================= */
+
+    .about-content {
+      position: absolute;
+
+      z-index: 6;
+
+      top: 38%;
+      left: 12%;
+
+      width: 76%;
+
+      color: #fff;
+
+      font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Times New Roman",
+        serif;
+
+      text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.78);
+    }
+
+
+    .about-subtitle {
+      margin-bottom: 26px;
+
+      text-align: center;
+
+      font-size: clamp(13px, 3.8vw, 18px);
+      font-weight: 400;
+
+      line-height: 1.6;
+      letter-spacing: 0.16em;
+
+      white-space: nowrap;
+    }
+
+
+    .about-description {
+      font-size: clamp(11px, 3.15vw, 15px);
+      font-weight: 400;
+
+      line-height: 1.78;
+      letter-spacing: 0.055em;
+    }
+
+
+    .about-description p {
+      margin-bottom: 5px;
+    }
+
+
+    .about-signature {
+      margin-top: 20px;
+      padding-right: 7%;
+
+      text-align: right;
+
+      font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Snell Roundhand",
+        cursive;
+
+      font-size: clamp(42px, 12vw, 66px);
+      font-weight: 600;
+
+      line-height: 1;
+
+      transform: rotate(-5deg);
+      transform-origin: right center;
+    }
+
+
+    @media (max-height: 700px) {
+
+      .about-content {
+        top: 36%;
+      }
+
+      .about-subtitle {
+        margin-bottom: 18px;
+        font-size: 12px;
+      }
+
+      .about-description {
+        font-size: 10px;
+        line-height: 1.58;
+      }
+
+      .about-description p {
+        margin-bottom: 3px;
+      }
+
+      .about-signature {
+        margin-top: 12px;
+        font-size: 40px;
+      }
+
+    }
+
+
+    @media (max-width: 360px) {
+
+      .about-content {
+        left: 10%;
+        width: 80%;
+      }
+
+      .about-subtitle {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .about-description {
+        font-size: 9.5px;
+        letter-spacing: 0.035em;
+      }
+
+      .about-signature {
+        font-size: 38px;
+      }
+
+    }
+
+
   </style>
 
 </head>
@@ -599,6 +732,39 @@
       </h1>
 
     </section>
+
+
+    <!-- =====================================
+         ABOUT CONTENT
+         紹介文
+    ====================================== -->
+
+    <section class="about-content">
+
+      <p class="about-subtitle">
+        ― このサイトについて ―
+      </p>
+
+      <div class="about-description">
+
+        <p>En.の書く、爆豪勝己の名前変換小説サイトです。</p>
+        <p>常にNo.1を目指す爆豪勝己。</p>
+        <p>その圧倒的な才能と、刺激的な個性、</p>
+        <p>そして天才的な戦闘センス。</p>
+        <p>嫌味で、ぶっきらぼうで、でもどこか目が離せない。</p>
+        <p>そんな彼の、かっこよさと脆さを愛しています。</p>
+        <p>彼への愛と、妄想と、</p>
+        <p>少しの自己表現を込めて。</p>
+        <p>どうぞ、のんびりしていってください。</p>
+
+      </div>
+
+      <div class="about-signature">
+        En.
+      </div>
+
+    </section>
+
 
 
     <!-- =====================================
