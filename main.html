@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>Main | KATSUKI BAKUGO FANFICTION ARCHIVE</title>
+
+  <style>
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #010001;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #010001;
+      color: #fff;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================================
+       MAIN PAGE
+    ========================================= */
+
+    .main-page {
+      position: relative;
+
+      width: 100%;
+      min-height: 100dvh;
+
+      overflow-x: hidden;
+
+      background: #010001;
+    }
+
+
+    /* =========================================
+       BACKGROUND
+       895.jpg を残しつつ、他ページより暗く
+    ========================================= */
+
+    .background-wrap {
+      position: fixed;
+      inset: 0;
+
+      z-index: 0;
+
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .background-image {
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      height: 100%;
+      width: auto;
+      min-width: 100%;
+
+      object-fit: cover;
+      object-position: right center;
+
+      opacity: 0.34;
+      filter: brightness(0.58) contrast(1.05);
+    }
+
+    .background-shade {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(1, 0, 1, 0.42) 0%,
+          rgba(1, 0, 1, 0.67) 44%,
+          rgba(1, 0, 1, 0.92) 100%
+        );
+    }
+
+
+    /* =========================================
+       HEADER
+       About / En. と同じ雰囲気
+    ========================================= */
+
+    .header {
+      position: fixed;
+
+      z-index: 30;
+
+      top: 5%;
+      left: 6%;
+
+      width: 88%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      pointer-events: none;
+    }
+
+    .directory-label,
+    .menu-button {
+      pointer-events: auto;
+    }
+
+    .directory-label {
+      font-size: 10px;
+      font-weight: 300;
+
+      line-height: 1.9;
+      letter-spacing: 0.28em;
+
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+
+    /* =========================================
+       MENU BUTTON
+    ========================================= */
+
+    .menu-button {
+      position: relative;
+
+      width: 42px;
+      height: 34px;
+
+      padding: 0;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+
+      z-index: 40;
+    }
+
+    .menu-button span {
+      position: absolute;
+
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background: #fff;
+
+      transition:
+        transform 0.35s ease,
+        top 0.35s ease,
+        opacity 0.25s ease;
+    }
+
+    .menu-button span:nth-child(1) {
+      top: 3px;
+    }
+
+    .menu-button span:nth-child(2) {
+      top: 16px;
+    }
+
+    .menu-button span:nth-child(3) {
+      top: 29px;
+    }
+
+    .menu-button.active span:nth-child(1) {
+      top: 16px;
+      transform: rotate(45deg);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.active span:nth-child(3) {
+      top: 16px;
+      transform: rotate(-45deg);
+    }
+
+
+    /* =========================================
+       PAGE TITLE
+    ========================================= */
+
+    .main-hero {
+      position: relative;
+
+      z-index: 5;
+
+      min-height: 36dvh;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      padding:
+        max(120px, 14vh)
+        6%
+        24px;
+    }
+
+    .main-title {
+      position: relative;
+      z-index: 0;
+
+      width: 100%;
+      max-width: 760px;
+
+      text-align: center;
+    }
+
+    .main-title h1 {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: clamp(48px, 14vw, 88px);
+      font-weight: 400;
+
+      line-height: 0.9;
+      letter-spacing: 0.08em;
+
+      color: #fff;
+    }
+
+    /* main.png があれば画像を使用。
+       無い場合はオレンジ文字を表示。 */
+    .main-kicker {
+      position: absolute;
+
+      left: 1%;
+      top: -38px;
+
+      z-index: -1;
+
+      height: clamp(56px, 14vw, 92px);
+    }
+
+    .main-kicker img {
+      display: block;
+
+      width: auto;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+    .main-kicker-fallback {
+      display: none;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: clamp(48px, 13vw, 82px);
+      font-style: italic;
+      font-weight: 400;
+
+      line-height: 1;
+
+      color: #e45116;
+
+      transform: rotate(-7deg);
+      transform-origin: left center;
+
+      opacity: 0.95;
+    }
+
+
+    /* =========================================
+       CONTENT
+    ========================================= */
+
+    .main-content {
+      position: relative;
+
+      z-index: 5;
+
+      width: min(88%, 760px);
+
+      margin: 0 auto;
+      padding: 18px 0 120px;
+
+      font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Times New Roman",
+        serif;
+    }
+
+
+    /* =========================================
+       NAME CHANGE
+    ========================================= */
+
+    .name-section {
+      margin-bottom: 62px;
+    }
+
+    .section-eyebrow {
+      margin-bottom: 12px;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 9px;
+      font-weight: 300;
+
+      letter-spacing: 0.32em;
+
+      color: rgba(255, 255, 255, 0.52);
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: clamp(26px, 7vw, 38px);
+      font-weight: 400;
+
+      letter-spacing: 0.08em;
+    }
+
+    .section-title::after {
+      content: "";
+
+      display: block;
+
+      width: 30px;
+      height: 2px;
+
+      margin-top: 13px;
+
+      background: #e45116;
+    }
+
+    .name-box {
+      padding: 20px 0 0;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .name-row {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .name-field label {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 9px;
+      font-weight: 300;
+
+      letter-spacing: 0.26em;
+
+      color: rgba(255, 255, 255, 0.64);
+    }
+
+    .name-field input {
+      width: 100%;
+
+      padding: 10px 2px 9px;
+
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+      outline: none;
+
+      background: transparent;
+      color: #fff;
+
+      font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+      font-size: 15px;
+      letter-spacing: 0.1em;
+
+      transition: border-color 0.2s ease;
+    }
+
+    .name-field input:focus {
+      border-bottom-color: #e45116;
+    }
+
+    .name-field input::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .name-actions {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+
+      margin-top: 18px;
+    }
+
+    .name-note {
+      font-size: 9px;
+      line-height: 1.7;
+      letter-spacing: 0.08em;
+
+      color: rgba(255, 255, 255, 0.48);
+    }
+
+    .save-name {
+      flex: 0 0 auto;
+
+      padding: 8px 0 7px;
+
+      border: none;
+      border-bottom: 1px solid #e45116;
+
+      background: transparent;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 10px;
+      font-weight: 400;
+
+      letter-spacing: 0.28em;
+
+      color: #e45116;
+
+      cursor: pointer;
+    }
+
+    .save-name:active {
+      opacity: 0.6;
+    }
+
+    .save-message {
+      min-height: 1.4em;
+      margin-top: 11px;
+
+      font-size: 9px;
+      letter-spacing: 0.1em;
+
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+
+    /* =========================================
+       WORKS
+    ========================================= */
+
+    .works-section {
+      margin-top: 68px;
+    }
+
+    .works-list {
+      list-style: none;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .works-list li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .short-link {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+
+      padding: 18px 2px;
+
+      text-decoration: none;
+
+      transition:
+        opacity 0.2s ease,
+        padding-left 0.2s ease;
+    }
+
+    .short-link:hover {
+      opacity: 0.62;
+      padding-left: 5px;
+    }
+
+    .work-number {
+      flex: 0 0 auto;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 8px;
+      letter-spacing: 0.2em;
+
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    .short-title {
+      flex: 1;
+
+      font-size: clamp(14px, 3.8vw, 17px);
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+    }
+
+    .arrow {
+      flex: 0 0 auto;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 11px;
+
+      color: #e45116;
+    }
+
+
+    /* =========================================
+       LONG STORIES
+    ========================================= */
+
+    .long-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 0;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .long-card {
+      display: block;
+
+      padding: 24px 2px 25px;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+      text-decoration: none;
+
+      transition:
+        opacity 0.2s ease,
+        padding-left 0.2s ease;
+    }
+
+    .long-card:hover {
+      opacity: 0.68;
+      padding-left: 5px;
+    }
+
+    .long-top {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+
+      margin-bottom: 10px;
+    }
+
+    .long-title {
+      font-size: clamp(17px, 4.8vw, 22px);
+      font-weight: 400;
+
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+    }
+
+    .long-state {
+      flex: 0 0 auto;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 8px;
+      font-weight: 400;
+
+      letter-spacing: 0.22em;
+
+      color: #e45116;
+    }
+
+    .long-description {
+      margin-bottom: 12px;
+
+      font-size: clamp(10.5px, 3vw, 13px);
+      line-height: 1.8;
+      letter-spacing: 0.055em;
+
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .long-update {
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 8px;
+      font-weight: 300;
+
+      letter-spacing: 0.22em;
+
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+
+    /* =========================================
+       FOOT
+    ========================================= */
+
+    .back-to-top {
+      display: inline-block;
+
+      margin-top: 78px;
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-size: 10px;
+      font-weight: 300;
+
+      line-height: 2.05;
+      letter-spacing: 0.25em;
+
+      color: rgba(255, 255, 255, 0.9);
+
+      text-decoration: none;
+    }
+
+    .back-to-top::after {
+      content: "";
+
+      display: block;
+
+      width: 30px;
+      height: 2px;
+
+      margin-top: 15px;
+
+      background: #e45116;
+    }
+
+
+    /* =========================================
+       MENU OVERLAY
+    ========================================= */
+
+    .menu-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 20;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      background: rgba(0, 0, 0, 0.88);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .menu-list {
+      list-style: none;
+
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+
+      gap: 28px;
+
+      text-align: center;
+    }
+
+    .menu-list li {
+      opacity: 0;
+      transform: translateY(10px);
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .menu-overlay.active .menu-list li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-overlay.active .menu-list li:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .menu-overlay.active .menu-list li:nth-child(2) {
+      transition-delay: 0.10s;
+    }
+
+    .menu-overlay.active .menu-list li:nth-child(3) {
+      transition-delay: 0.15s;
+    }
+
+    .menu-overlay.active .menu-list li:nth-child(4) {
+      transition-delay: 0.20s;
+    }
+
+    .menu-list a {
+      display: block;
+
+      color: #fff;
+      text-decoration: none;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 20px;
+      font-weight: 400;
+
+      letter-spacing: 0.16em;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .menu-list a:hover {
+      opacity: 0.6;
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 560px) {
+
+      .main-hero {
+        min-height: 34dvh;
+
+        padding-left: 8%;
+        padding-right: 8%;
+      }
+
+      .main-content {
+        width: 82%;
+      }
+
+      .main-kicker {
+        left: -2%;
+      }
+
+      .name-row {
+        gap: 18px;
+
+        grid-template-columns: 1fr;
+      }
+
+      .name-actions {
+        align-items: flex-end;
+      }
+
+      .name-note {
+        max-width: 72%;
+      }
+
+      .long-top {
+        gap: 10px;
+      }
+
+    }
+
+
+    @media (max-width: 360px) {
+
+      .directory-label {
+        font-size: 9px;
+      }
+
+      .menu-button {
+        width: 35px;
+        height: 28px;
+      }
+
+      .menu-button span:nth-child(1) {
+        top: 2px;
+      }
+
+      .menu-button span:nth-child(2) {
+        top: 13px;
+      }
+
+      .menu-button span:nth-child(3) {
+        top: 24px;
+      }
+
+      .menu-button.active span:nth-child(1),
+      .menu-button.active span:nth-child(3) {
+        top: 13px;
+      }
+
+      .main-title h1 {
+        font-size: 42px;
+      }
+
+      .main-content {
+        width: 84%;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .name-note {
+        font-size: 8px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="main-page">
+
+
+    <!-- =====================================
+         BACKGROUND
+    ====================================== -->
+
+    <div class="background-wrap" aria-hidden="true">
+      <img
+        class="background-image"
+        src="895.jpg"
+        alt=""
+      >
+      <div class="background-shade"></div>
+    </div>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="header">
+
+      <div class="directory-label">
+        KATSUKI BAKUGO<br>
+        FANFICTION<br>
+        ARCHIVE
+      </div>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </header>
+
+
+    <!-- =====================================
+         PAGE TITLE
+    ====================================== -->
+
+    <section class="main-hero">
+
+      <div class="main-title">
+
+        <div class="main-kicker" aria-hidden="true">
+          <img
+            id="mainKickerImage"
+            src="main.png"
+            alt=""
+            onerror="this.style.display='none'; document.getElementById('mainKickerFallback').style.display='block';"
+          >
+          <span
+            class="main-kicker-fallback"
+            id="mainKickerFallback"
+          >
+            Main
+          </span>
+        </div>
+
+        <h1>main</h1>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CONTENT
+    ====================================== -->
+
+    <div class="main-content">
+
+
+      <!-- =====================================
+           NAME CHANGE
+      ====================================== -->
+
+      <section class="name-section">
+
+        <p class="section-eyebrow">
+          DREAM NAME
+        </p>
+
+        <h2 class="section-title">
+          名前変換
+        </h2>
+
+        <div class="name-box">
+
+          <div class="name-row">
+
+            <div class="name-field">
+              <label for="lastName">
+                LAST NAME / 苗字
+              </label>
+
+              <input
+                id="lastName"
+                type="text"
+                placeholder="例：山田"
+                autocomplete="family-name"
+              >
+            </div>
+
+            <div class="name-field">
+              <label for="firstName">
+                FIRST NAME / 名前
+              </label>
+
+              <input
+                id="firstName"
+                type="text"
+                placeholder="例：花子"
+                autocomplete="given-name"
+              >
+            </div>
+
+          </div>
+
+          <div class="name-actions">
+
+            <p class="name-note">
+              ここで登録した名前が、対応する小説本文に反映されます。
+            </p>
+
+            <button
+              class="save-name"
+              id="saveNameButton"
+              type="button"
+            >
+              SAVE
+            </button>
+
+          </div>
+
+          <p
+            class="save-message"
+            id="saveMessage"
+            aria-live="polite"
+          ></p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================
+           SHORT STORIES
+      ====================================== -->
+
+      <section class="works-section">
+
+        <p class="section-eyebrow">
+          SHORT STORIES
+        </p>
+
+        <h2 class="section-title">
+          短編
+        </h2>
+
+        <ul class="works-list">
+
+          <li>
+            <a
+              class="short-link"
+              href="short-01.html"
+            >
+              <span class="work-number">01</span>
+              <span class="short-title">タイトル未定</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="short-link"
+              href="short-02.html"
+            >
+              <span class="work-number">02</span>
+              <span class="short-title">タイトル未定</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="short-link"
+              href="short-03.html"
+            >
+              <span class="work-number">03</span>
+              <span class="short-title">タイトル未定</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </section>
+
+
+      <!-- =====================================
+           LONG STORIES
+      ====================================== -->
+
+      <section class="works-section">
+
+        <p class="section-eyebrow">
+          LONG STORIES
+        </p>
+
+        <h2 class="section-title">
+          長編
+        </h2>
+
+        <div class="long-list">
+
+          <a
+            class="long-card"
+            href="long-01.html"
+          >
+
+            <div class="long-top">
+              <h3 class="long-title">
+                タイトル未定
+              </h3>
+
+              <span class="long-state">
+                連載中
+              </span>
+            </div>
+
+            <p class="long-description">
+              ここに長編の短い説明文が入ります。
+              あらすじを一〜二文くらいで。
+            </p>
+
+            <p class="long-update">
+              UPDATE 20XX.XX.XX
+            </p>
+
+          </a>
+
+
+          <a
+            class="long-card"
+            href="long-02.html"
+          >
+
+            <div class="long-top">
+              <h3 class="long-title">
+                タイトル未定
+              </h3>
+
+              <span class="long-state">
+                完結
+              </span>
+            </div>
+
+            <p class="long-description">
+              ここに長編の短い説明文が入ります。
+              タイトルが決まったら、この部分も自由に差し替えられます。
+            </p>
+
+            <p class="long-update">
+              UPDATE 20XX.XX.XX
+            </p>
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================
+           BACK TO TOP
+      ====================================== -->
+
+      <a
+        class="back-to-top"
+        href="index.html"
+      >
+        BACK TO TOP
+      </a>
+
+
+    </div>
+
+
+    <!-- =====================================
+         MENU
+    ====================================== -->
+
+    <nav
+      class="menu-overlay"
+      id="menuOverlay"
+      aria-hidden="true"
+    >
+
+      <ul class="menu-list">
+
+        <li>
+          <a href="index.html">
+            index
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            about
+          </a>
+        </li>
+
+        <li>
+          <a href="main.html">
+            main
+          </a>
+        </li>
+
+        <li>
+          <a href="en.html">
+            En.
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+  </main>
+
+
+  <script>
+
+    /* =========================================
+       MENU
+    ========================================= */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menuOverlay =
+      document.getElementById("menuOverlay");
+
+    menuButton.addEventListener("click", function () {
+
+      const isOpen =
+        menuButton.classList.toggle("active");
+
+      menuOverlay.classList.toggle("active");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+      menuOverlay.setAttribute(
+        "aria-hidden",
+        !isOpen
+      );
+
+    });
+
+
+    /* =========================================
+       main.png が無い場合のフォールバック
+    ========================================= */
+
+    const mainKickerImage =
+      document.getElementById("mainKickerImage");
+
+    const mainKickerFallback =
+      document.getElementById("mainKickerFallback");
+
+    mainKickerImage.addEventListener("error", function () {
+      mainKickerImage.style.display = "none";
+      mainKickerFallback.style.display = "block";
+    });
+
+
+    /* =========================================
+       NAME CHANGE
+       localStorage に保存
+    ========================================= */
+
+    const lastNameInput =
+      document.getElementById("lastName");
+
+    const firstNameInput =
+      document.getElementById("firstName");
+
+    const saveNameButton =
+      document.getElementById("saveNameButton");
+
+    const saveMessage =
+      document.getElementById("saveMessage");
+
+
+    /* 保存済みの名前があれば最初から表示 */
+
+    function getSavedName(key) {
+      try {
+        return localStorage.getItem(key) || "";
+      } catch (error) {
+        return "";
+      }
+    }
+
+    lastNameInput.value =
+      getSavedName("dreamLastName");
+
+    firstNameInput.value =
+      getSavedName("dreamFirstName");
+
+
+    /* SAVE */
+
+    saveNameButton.addEventListener("click", function () {
+
+      const lastName =
+        lastNameInput.value.trim();
+
+      const firstName =
+        firstNameInput.value.trim();
+
+      let saved = true;
+
+      try {
+
+        localStorage.setItem(
+          "dreamLastName",
+          lastName
+        );
+
+        localStorage.setItem(
+          "dreamFirstName",
+          firstName
+        );
+
+        localStorage.setItem(
+          "dreamFullName",
+          [lastName, firstName]
+            .filter(Boolean)
+            .join("")
+        );
+
+      } catch (error) {
+
+        saved = false;
+
+      }
+
+
+      if (!saved) {
+
+        saveMessage.textContent =
+          "このブラウザでは名前を保存できませんでした。";
+
+      } else if (!lastName && !firstName) {
+
+        saveMessage.textContent =
+          "名前を空欄で保存しました。";
+
+      } else {
+
+        saveMessage.textContent =
+          "名前を保存しました。";
+
+      }
+
+
+      window.setTimeout(function () {
+        saveMessage.textContent = "";
+      }, 2600);
+
+    });
+
+  </script>
+
+</body>
+</html>
