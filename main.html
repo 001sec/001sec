@@ -279,12 +279,13 @@
     .main-kicker {
       position: absolute;
 
-      left: -2%;
-      top: -66px;
+      left: 4%;
+      top: -52px;
 
       z-index: -1;
 
-      width: clamp(200px, 55vw, 310px);
+      /* About のオレンジ見出しに近い見た目の大きさ */
+      width: clamp(150px, 38vw, 230px);
       height: auto;
     }
 
@@ -905,9 +906,9 @@
       }
 
       .main-kicker {
-        left: -4%;
-        top: -64px;
-        width: clamp(205px, 56vw, 245px);
+        left: 2%;
+        top: -48px;
+        width: clamp(145px, 38vw, 205px);
       }
 
       .name-row {
@@ -1094,7 +1095,7 @@
               <input
                 id="lastName"
                 type="text"
-                placeholder="例：山田"
+                placeholder="久我"
                 autocomplete="family-name"
               >
             </div>
@@ -1107,7 +1108,7 @@
               <input
                 id="firstName"
                 type="text"
-                placeholder="例：花子"
+                placeholder="霞"
                 autocomplete="given-name"
               >
             </div>
@@ -1161,7 +1162,7 @@
 
             <div class="long-top">
               <h3 class="long-title">
-                タイトル未定
+                その壁の外側で
               </h3>
 
               <span class="long-state">
@@ -1174,12 +1175,12 @@
             </nav>
 
             <p class="long-description">
-              ここに長編の短い説明文が入ります。
-              あらすじを一〜二文くらいで。
+              自分を守れない「バリア」を持つ少女と、爆豪勝己。
+              生きることと守ること、その壁の外側で重なっていく物語。
             </p>
 
             <p class="long-update">
-              UPDATE 20XX.XX.XX
+              UPDATE 2026.09.08
             </p>
 
           </article>
@@ -1418,10 +1419,10 @@
     }
 
     lastNameInput.value =
-      getSavedName("dreamLastName");
+      getSavedName("dreamLastName") || "久我";
 
     firstNameInput.value =
-      getSavedName("dreamFirstName");
+      getSavedName("dreamFirstName") || "霞";
 
 
     /* SAVE */
@@ -1429,10 +1430,10 @@
     saveNameButton.addEventListener("click", function () {
 
       const lastName =
-        lastNameInput.value.trim();
+        lastNameInput.value.trim() || "久我";
 
       const firstName =
-        firstNameInput.value.trim();
+        firstNameInput.value.trim() || "霞";
 
       let saved = true;
 
@@ -1466,11 +1467,6 @@
 
         saveMessage.textContent =
           "このブラウザでは名前を保存できませんでした。";
-
-      } else if (!lastName && !firstName) {
-
-        saveMessage.textContent =
-          "名前を空欄で保存しました。";
 
       } else {
 
