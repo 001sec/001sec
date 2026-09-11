@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>04 帰る場所 | その壁の外側で</title>
+        <style>
+            * {
+                margin:0;
+                padding:0;
+                box-sizing:border-box
+            }
+
+            html {
+                background:#010001;
+                scroll-behavior:smooth
+            }
+
+            body {
+                min-height:100%;
+                background:#010001;
+                color:#fff;
+                font-family:"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Times New Roman",serif
+            }
+
+            button,a {
+                color:inherit
+            }
+
+            a {
+                text-decoration:none
+            }
+
+            .novel-page {
+                position:relative;
+                min-height:100dvh;
+                overflow-x:hidden;
+                background:#010001
+            }
+
+            .background-wrap {
+                position:fixed;
+                inset:0;
+                z-index:0;
+                overflow:hidden;
+                pointer-events:none
+            }
+
+            .background-image {
+                position:absolute;
+                top:0;
+                right:0;
+                height:100%;
+                width:auto;
+                opacity:.34;
+                filter:grayscale(.15) contrast(1.08)
+            }
+
+            .background-shade {
+                position:absolute;
+                inset:0;
+                background:linear-gradient(180deg,rgba(1,0,1,.42) 0%,rgba(1,0,1,.78) 30%,rgba(1,0,1,.94) 74%,#010001 100%)
+            }
+
+            .orange-graphic {
+                position:fixed;
+                right:-2%;
+                bottom:4%;
+                z-index:2;
+                width:auto;
+                height:22%;
+                opacity:.22;
+                pointer-events:none
+            }
+
+            .header {
+                position:fixed;
+                z-index:30;
+                top:5%;
+                left:6%;
+                width:88%;
+                display:flex;
+                justify-content:space-between;
+                align-items:flex-start;
+                pointer-events:none
+            }
+
+            .directory-label,.menu-button {
+                pointer-events:auto
+            }
+
+            .directory-label {
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size:10px;
+                font-weight:300;
+                line-height:1.9;
+                letter-spacing:.28em;
+                color:rgba(255,255,255,.88)
+            }
+
+            .menu-button {
+                position:relative;
+                z-index:40;
+                width:42px;
+                height:34px;
+                padding:0;
+                border:none;
+                background:transparent;
+                cursor:pointer;
+                -webkit-tap-highlight-color:transparent
+            }
+
+            .menu-button span {
+                position:absolute;
+                left:0;
+                width:100%;
+                height:2px;
+                background:#fff;
+                transition:transform .35s ease,top .35s ease,opacity .25s ease
+            }
+
+            .menu-button span:nth-child(1) {
+                top:3px
+            }
+
+            .menu-button span:nth-child(2) {
+                top:16px
+            }
+
+            .menu-button span:nth-child(3) {
+                top:29px
+            }
+
+            .menu-button.active span:nth-child(1) {
+                top:16px;
+                transform:rotate(45deg)
+            }
+
+            .menu-button.active span:nth-child(2) {
+                opacity:0
+            }
+
+            .menu-button.active span:nth-child(3) {
+                top:16px;
+                transform:rotate(-45deg)
+            }
+
+            .story-hero {
+                position:relative;
+                z-index:5;
+                width:min(86%,760px);
+                margin:0 auto;
+                padding:max(150px,19vh) 0 72px
+            }
+
+            .story-eyebrow {
+                margin-bottom:24px;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size:9px;
+                font-weight:300;
+                letter-spacing:.34em;
+                color:rgba(255,255,255,.52)
+            }
+
+            .story-title {
+                max-width:680px;
+                font-size:clamp(30px,7.2vw,58px);
+                font-weight:400;
+                line-height:1.25;
+                letter-spacing:.08em;
+                text-shadow:0 3px 18px rgba(0,0,0,.7)
+            }
+
+            .chapter-meta {
+                display:flex;
+                align-items:center;
+                gap:18px;
+                margin-top:32px
+            }
+
+            .chapter-number {
+                flex:0 0 auto;
+                font-family:"Times New Roman",Times,serif;
+                font-size:34px;
+                font-weight:400;
+                line-height:1;
+                color:#e45116
+            }
+
+            .chapter-line {
+                width:42px;
+                height:1px;
+                background:rgba(255,255,255,.38)
+            }
+
+            .chapter-name {
+                font-size:clamp(14px,3.6vw,18px);
+                font-weight:400;
+                letter-spacing:.12em;
+                color:rgba(255,255,255,.92)
+            }
+
+            .name-status {
+                margin-top:22px;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size:8px;
+                line-height:1.8;
+                letter-spacing:.16em;
+                color:rgba(255,255,255,.42)
+            }
+
+            .name-status a {
+                color:#e45116;
+                border-bottom:1px solid rgba(228,81,22,.55)
+            }
+
+            .story-wrap {
+                position:relative;
+                z-index:5;
+                width:min(82%,690px);
+                margin:0 auto;
+                padding-bottom:118px
+            }
+
+            .story-rule {
+                width:100%;
+                height:1px;
+                margin-bottom:58px;
+                background:linear-gradient(90deg,#e45116 0 42px,rgba(255,255,255,.13) 42px 100%)
+            }
+
+            .story-text {
+                font-size:clamp(14px,3.4vw,16.5px);
+                font-weight:400;
+                line-height:2.15;
+                letter-spacing:.045em;
+                color:rgba(255,255,255,.92);
+                text-shadow:0 1px 3px rgba(0,0,0,.72);
+                word-break:normal;
+                overflow-wrap:anywhere
+            }
+
+            .story-text p {
+                margin-bottom:.98em
+            }
+
+            .story-text .narrative {
+                text-indent:1em
+            }
+
+            .story-text .dialogue,
+            .story-text .impact {
+                text-indent:0
+            }
+
+            .story-text .impact {
+                margin:1.8em 0;
+                text-align:center;
+                font-weight:600;
+                letter-spacing:.12em
+            }
+
+            .story-text .scene-space {
+                height:5em
+            }
+
+            .story-nav {
+                position:relative;
+                z-index:5;
+                width:min(82%,690px);
+                margin:0 auto;
+                padding:0 0 140px;
+                border-top:1px solid rgba(255,255,255,.13)
+            }
+
+            .nav-inner {
+                display:grid;
+                grid-template-columns:1fr auto 1fr;
+                align-items:center;
+                gap:18px;
+                padding-top:28px
+            }
+
+            .nav-link {
+                display:block;
+                padding:7px 0;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size:9px;
+                font-weight:300;
+                letter-spacing:.22em;
+                color:rgba(255,255,255,.75);
+                transition:opacity .2s ease,color .2s ease
+            }
+
+            .nav-link:hover {
+                color:#e45116
+            }
+
+            .nav-link.next {
+                text-align:right;
+                opacity:.25;
+                pointer-events:none
+            }
+
+            .nav-center {
+                font-family:"Times New Roman",Times,serif;
+                font-size:13px;
+                letter-spacing:.14em;
+                color:rgba(255,255,255,.38)
+            }
+
+            .menu-overlay {
+                position:fixed;
+                inset:0;
+                z-index:20;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                background:rgba(0,0,0,.91);
+                opacity:0;
+                visibility:hidden;
+                pointer-events:none;
+                transition:opacity .35s ease,visibility .35s ease
+            }
+
+            .menu-overlay.active {
+                opacity:1;
+                visibility:visible;
+                pointer-events:auto
+            }
+
+            .menu-list {
+                list-style:none;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                gap:28px;
+                text-align:center
+            }
+
+            .menu-list a {
+                display:block;
+                font-family:"Times New Roman",Times,serif;
+                font-size:20px;
+                font-weight:400;
+                letter-spacing:.16em;
+                color:#fff;
+                transition:opacity .2s ease
+            }
+
+            .menu-list a:hover {
+                opacity:.6
+            }
+
+            ruby rt {
+                font-size:.55em
+            }
+
+            @media(max-width:560px) {
+                .story-hero {
+                    width:82%;
+                    padding-top:max(138px,18vh);
+                    padding-bottom:56px
+                }
+
+                .story-wrap,.story-nav {
+                    width:82%
+                }
+
+                .story-text {
+                    line-height:2.05;
+                    letter-spacing:.035em
+                }
+
+                .chapter-meta {
+                    gap:13px
+                }
+
+                .chapter-line {
+                    width:30px
+                }
+
+                .orange-graphic {
+                    height:17%;
+                    bottom:2%
+                }
+            }
+
+            @media(max-width:360px) {
+                .directory-label {
+                    font-size:9px
+                }
+
+                .menu-button {
+                    width:35px;
+                    height:28px
+                }
+
+                .menu-button span:nth-child(1) {
+                    top:2px
+                }
+
+                .menu-button span:nth-child(2) {
+                    top:13px
+                }
+
+                .menu-button span:nth-child(3) {
+                    top:24px
+                }
+
+                .menu-button.active span:nth-child(1),
+                .menu-button.active span:nth-child(3) {
+                    top:13px
+                }
+
+                .story-text {
+                    font-size:13.5px
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="novel-page">
+
+            <div class="background-wrap" aria-hidden="true">
+                <img class="background-image" src="../images/895.jpg" alt="">
+                <div class="background-shade"></div>
+            </div>
+
+            <img class="orange-graphic" src="../images/zigzag.png" alt="" aria-hidden="true">
+
+            <header class="header">
+                <div class="directory-label">
+                    KATSUKI BAKUGO<br>
+                    FANFICTION<br>
+                    ARCHIVE
+                </div>
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    type="button"
+                    aria-label="メニューを開く"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </header>
+
+            <section class="story-hero">
+                <p class="story-eyebrow">LONG STORY / 04</p>
+
+                <h1 class="story-title">その壁の外側で</h1>
+
+                <div class="chapter-meta">
+                    <span class="chapter-number">04</span>
+                    <span class="chapter-line" aria-hidden="true"></span>
+                    <h2 class="chapter-name">帰る場所</h2>
+                </div>
+
+                <p class="name-status">
+                    DEFAULT NAME :
+                    <span data-name="last">久我</span>
+                    <span data-name="first">霞</span>
+                    /
+                    <a href="../main.html">NAME SETTING</a>
+                </p>
+            </section>
+
+            <article class="story-wrap">
+                <div class="story-rule" aria-hidden="true"></div>
+
+                <div class="story-text">
+
+                    <p class="narrative">金曜日の放課後、1年A組の教室では、週末の予定を話す声があちこちから聞こえていた。</p>
+
+                    <p class="dialogue">「明日どっか行く奴いるー？」</p>
+
+                    <p class="narrative">椅子を後ろ向きに跨いだ上鳴が声を上げると、近くにいた三奈がすぐに手を挙げた。</p>
+
+                    <p class="dialogue">「はいはい！　私、買い物行きたい！　秋物見たい！」</p>
+
+                    <p class="dialogue">「俺は自主練だな」</p>
+
+                    <p class="dialogue">「切島、それ休日の予定って言う？」</p>
+
+                    <p class="narrative">耳郎の冷静な指摘に笑いが起こる。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>はその少し離れたところで、机の中の教科書を鞄へ詰めていた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>ちゃんは？」</p>
+
+                    <p class="narrative">お茶子に声をかけられ、顔を上げる。</p>
+
+                    <p class="dialogue">「私？　実家帰るよ」</p>
+
+                    <p class="dialogue">「実家？」</p>
+
+                    <p class="dialogue">「うん」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>ちゃんって寮入ってからも結構帰っとるよな？」</p>
+
+                    <p class="dialogue">「あー、帰れる週はだいたい帰ってるかな。電車とバスでちょっとかかるけど」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は鞄のチャックを閉めながら答えた。</p>
+
+                    <p class="dialogue">「へえ。家族に会いに？」</p>
+
+                    <p class="dialogue">「そんな感じ」</p>
+
+                    <p class="narrative">三奈が「いいなー」と机へ頬杖をついたところで、<span data-name="first">霞</span>の顔を見て何かに気づいたように目を細めた。</p>
+
+                    <p class="dialogue">「あれ。<span data-name="last">久我</span>、それ頬どうしたの？」</p>
+
+                    <p class="dialogue">「ああ、これ？」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は左頬に貼られた小さな絆創膏へ触れた。</p>
+
+                    <p class="dialogue">「昨日の演習でちょっと掠っただけ」</p>
+
+                    <p class="dialogue">「全然気づかなかった」</p>
+
+                    <p class="dialogue">「うん。ほんとに小さい傷だよ」</p>
+
+                    <p class="dialogue">「自分で貼ったの？」</p>
+
+                    <p class="dialogue">「いや、爆豪くん」</p>
+
+                    <p class="narrative">一瞬。</p>
+
+                    <p class="narrative">教室の一角が静かになった。</p>
+
+                    <p class="dialogue">「……え？」</p>
+
+                    <p class="narrative">三奈の声だけが妙にくっきり響く。</p>
+
+                    <p class="dialogue">「爆豪が？」</p>
+
+                    <p class="dialogue">「うん」</p>
+
+                    <p class="dialogue">「<span data-name="last">久我</span>の？」</p>
+
+                    <p class="dialogue">「頬に」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が何の疑問もなく頷く。</p>
+
+                    <p class="narrative">次の瞬間、少し離れた席から椅子が大きな音を立てた。</p>
+
+                    <p class="dialogue">「余計なことベラベラ喋ってんじゃねぇ！！」</p>
+
+                    <p class="dialogue">「え、なんで？」</p>
+
+                    <p class="dialogue">「なんでもクソもあるか！！」</p>
+
+                    <p class="dialogue">「別に絆創膏貼っただけじゃん」</p>
+
+                    <p class="dialogue">「黙れ！！」</p>
+
+                    <p class="dialogue">「爆豪、墓穴掘ってね？」</p>
+
+                    <p class="dialogue">「上鳴テメェから殺す！！」</p>
+
+                    <p class="narrative">教室が一気に騒がしくなる。</p>
+
+                    <p class="narrative">何がそんなに面白いのか分からない<span data-name="first">霞</span>だけが首を傾げながら鞄を肩へかけ、笑いを堪えているお茶子たちへ「じゃあまた月曜」と手を振った。</p>
+
+                    <div class="scene-space" aria-hidden="true"></div>
+
+                    <p class="narrative scene-break">翌日の昼前。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は郊外を走るバスから降りた。</p>
+
+                    <p class="narrative">街中より少し冷たい風が、長い髪を揺らす。</p>
+
+                    <p class="narrative">慣れた道を歩き、緩やかな坂を上ると、古い二階建ての建物が見えてきた。</p>
+
+                    <p class="narrative">壁の塗装はところどころ色褪せている。庭の隅に並んだ遊具も決して新しくはなく、門の横に掛けられた看板にも長い年月の跡が残っていた。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>はその門を押し開けた。</p>
+
+                    <p class="dialogue">「ただいまー！」</p>
+
+                    <p class="narrative">建物へ向けて大きな声を投げる。</p>
+
+                    <p class="narrative">数秒もしないうちに、玄関の奥からドタドタと激しい足音が響いてきた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん！？」</p>
+
+                    <p class="dialogue">「帰ってきた！」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃーん！」</p>
+
+                    <p class="narrative">扉が勢いよく開き、小さな子どもたちが一斉に飛び出してくる。</p>
+
+                    <p class="dialogue">「うわ、ちょ、待って待って！」</p>
+
+                    <p class="narrative">先頭の男の子を受け止めたところへ、横からもう一人が腰へ抱きつく。その後ろからも次々と子どもが押し寄せ、あっという間に<span data-name="first">霞</span>の周囲は人だかりになった。</p>
+
+                    <p class="dialogue">「おかえり！」</p>
+
+                    <p class="dialogue">「ただいま。はい、一回離れて。鞄置かせて」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん見て！　歯抜けた！」</p>
+
+                    <p class="dialogue">「ほんとだ。どこいった？」</p>
+
+                    <p class="dialogue">「枕の下！」</p>
+
+                    <p class="dialogue">「まだ入れてんの？」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん、算数分かんない！」</p>
+
+                    <p class="dialogue">「帰って三十秒で宿題の話する？」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>ー！」</p>
+
+                    <p class="narrative">今度は建物の中から、エプロン姿の和江が顔を出した。</p>
+
+                    <p class="dialogue">「おかえりなさい。今日だったのね」</p>
+
+                    <p class="dialogue">「ただいま、和江さん。何か手伝うことある？」</p>
+
+                    <p class="dialogue">「まず荷物くらい置いてきなさい」</p>
+
+                    <p class="dialogue">「はーい」</p>
+
+                    <p class="narrative">返事をしながらも、<span data-name="first">霞</span>の右手にはすでに誰かのランドセルがぶら下がり、左腕には三歳ほどの女の子が抱きついている。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>にとって、ここが実家だった。</p>
+
+                    <p class="narrative">子どもの頃から暮らしてきた児童養護施設。</p>
+
+                    <p class="narrative">血の繋がった親兄弟がいる家ではない。それでも、幼い<span data-name="first">霞</span>にご飯を食べさせ、熱を出せば夜中まで看病し、学校行事の日には誰かが必ず見に来てくれた。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>の中では、ずっと昔からここが家だった。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん！」</p>
+
+                    <p class="narrative">聞き慣れた声がして振り返る。</p>
+
+                    <p class="narrative">玄関から、小学校低学年ほどの男の子――<ruby>叶翔<rt>かなと</rt></ruby>が全速力で走ってきた。</p>
+
+                    <p class="dialogue">「叶翔」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が名前を呼んだ途端、そのまま腹へ飛び込んでくる。</p>
+
+                    <p class="dialogue">「おかえり！」</p>
+
+                    <p class="dialogue">「ただいま。……なんかまた大きくなった？」</p>
+
+                    <p class="dialogue">「なった！」</p>
+
+                    <p class="dialogue">「先週も大きくなったって言ってなかった？」</p>
+
+                    <p class="dialogue">「今週もなった！」</p>
+
+                    <p class="dialogue">「一週間で？」</p>
+
+                    <p class="dialogue">「うん！」</p>
+
+                    <p class="dialogue">「そっか。じゃあ来週には私抜かされるね」</p>
+
+                    <p class="dialogue">「抜かす！」</p>
+
+                    <p class="narrative">叶翔は<span data-name="first">霞</span>へしがみついたまま、自信満々に頷いた。</p>
+
+                    <p class="narrative">その様子を見ていた少し年上の女の子が、呆れたように笑う。</p>
+
+                    <p class="dialogue">「叶翔、<span data-name="first">霞</span>姉ちゃん帰ってくるたびそれやってる」</p>
+
+                    <p class="dialogue">「いいの！」</p>
+
+                    <p class="dialogue">「何がいいの？」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん、僕のお嫁さんだから！」</p>
+
+                    <p class="dialogue">「えっ」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が叶翔を見る。</p>
+
+                    <p class="dialogue">「そうだったの？」</p>
+
+                    <p class="dialogue">「そう！」</p>
+
+                    <p class="dialogue">「初耳なんだけど」</p>
+
+                    <p class="dialogue">「今決めた！」</p>
+
+                    <p class="dialogue">「なるほど」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は真剣な顔で頷いた。</p>
+
+                    <p class="dialogue">「じゃあ私、叶翔が大人になるまで待ってないといけないの？」</p>
+
+                    <p class="dialogue">「待って！」</p>
+
+                    <p class="dialogue">「長いなあ」</p>
+
+                    <p class="narrative">周囲から笑い声が上がった。</p>
+
+                    <p class="narrative">叶翔だけは真剣な顔で<span data-name="first">霞</span>の服を掴んでいる。</p>
+
+                    <p class="dialogue">「他の人と結婚しちゃダメだよ」</p>
+
+                    <p class="dialogue">「はいはい。考えとく」</p>
+
+                    <p class="dialogue">「約束！」</p>
+
+                    <p class="dialogue">「約束まではできないかなあ」</p>
+
+                    <p class="dialogue">「なんで！」</p>
+
+                    <p class="dialogue">「十年以上あるから」</p>
+
+                    <p class="narrative">頬を膨らませる叶翔の頭を撫でながら、<span data-name="first">霞</span>は笑った。</p>
+
+                    <div class="scene-space" aria-hidden="true"></div>
+
+                    <p class="narrative scene-break">午後。</p>
+
+                    <p class="narrative">庭から子どもたちの声が響いていた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん、滑り台！」</p>
+
+                    <p class="dialogue">「あれやってー！」</p>
+
+                    <p class="dialogue">「はいはい。靴下脱いで。あと押さないこと。順番守れない人は参加禁止」</p>
+
+                    <p class="dialogue">「はーい！」</p>
+
+                    <p class="narrative">元気のいい返事がいくつも重なる。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は庭の中央を見ながら、地面の少し下へ意識を向けた。</p>
+
+                    <p class="narrative">透明な球体のバリアを、半分以上地中へ埋めるような位置に展開する。</p>
+
+                    <p class="narrative">地上へ現れたのは、緩やかな曲面だけだった。</p>
+
+                    <p class="narrative">透明な小さな丘。</p>
+
+                    <p class="dialogue">「できたよ」</p>
+
+                    <p class="dialogue">「わーい！」</p>
+
+                    <p class="narrative">子どもたちが裸足で駆け寄り、つるりとした表面を登っていく。頂上まで行けば、そのまま尻をついて滑り降り、また反対側から登る。</p>
+
+                    <p class="dialogue">「押さない！」</p>
+
+                    <p class="dialogue">「押してないもん！」</p>
+
+                    <p class="dialogue">「今押したの見てたよ」</p>
+
+                    <p class="dialogue">「見てたの！？」</p>
+
+                    <p class="dialogue">「見てるよー」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は縁側に腰掛けながら笑った。</p>
+
+                    <p class="narrative">誰かが転びそうになれば名前を呼ぶ。</p>
+
+                    <p class="narrative">順番を抜かした子がいればすぐに気づく。</p>
+
+                    <p class="narrative">少し離れた砂場で一人だけ黙っている子にも、何度か視線を向けている。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>ってほんと、目いっぱいあるよね」</p>
+
+                    <p class="narrative">隣へ座った中学生の女の子が呆れたように言った。</p>
+
+                    <p class="dialogue">「二個しかないよ」</p>
+
+                    <p class="dialogue">「絶対嘘。さっきから全員見てるじゃん」</p>
+
+                    <p class="dialogue">「見とかないと危ないからね」</p>
+
+                    <p class="dialogue">「学校でもそんな感じ？」</p>
+
+                    <p class="dialogue">「学校？」</p>
+
+                    <p class="dialogue">「ヒーロー科」</p>
+
+                    <p class="dialogue">「うーん」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は少し考えてから、庭を走り回る子どもたちへ視線を戻した。</p>
+
+                    <p class="dialogue">「学校の方が楽かも」</p>
+
+                    <p class="dialogue">「嘘でしょ」</p>
+
+                    <p class="dialogue">「敵はだいたい攻撃する前にこっち見てくれるけど、この子たち何の前触れもなく高いところから飛ぶから」</p>
+
+                    <p class="dialogue">「確かに」</p>
+
+                    <p class="narrative">二人で笑う。</p>
+
+                    <p class="narrative">庭では叶翔がバリアの上から<span data-name="first">霞</span>へ手を振っていた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃーん！　見てー！」</p>
+
+                    <p class="dialogue">「見てるよー！」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>も手を振り返した。</p>
+
+                    <div class="scene-space" aria-hidden="true"></div>
+
+                    <p class="narrative scene-break">夕方になると、施設の中は一気に忙しくなった。</p>
+
+                    <p class="narrative">夕飯の支度をしながら宿題を見る。風呂へ入る順番で喧嘩が起き、その横では幼児が眠くなって泣き始める。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は泣いている子を片腕で抱きながら、もう片方の手で鍋をかき混ぜていた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>、その子見てるから鍋お願い！」</p>
+
+                    <p class="dialogue">「大丈夫。もう寝そうだから」</p>
+
+                    <p class="dialogue">「お姉ちゃん、漢字分かんない！」</p>
+
+                    <p class="dialogue">「あと三分待って。ご飯焦げる」</p>
+
+                    <p class="dialogue">「三分？」</p>
+
+                    <p class="dialogue">「百八十秒」</p>
+
+                    <p class="dialogue">「長い！」</p>
+
+                    <p class="dialogue">「短いよ」</p>
+
+                    <p class="narrative">そんなやり取りをしていると、奥から和江がため息をつきながら出てきた。</p>
+
+                    <p class="dialogue">「また雨漏りしてるわ」</p>
+
+                    <p class="dialogue">「え、どこ？」</p>
+
+                    <p class="dialogue">「二階の廊下。前直したところとは別」</p>
+
+                    <p class="dialogue">「また？」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が眉を寄せる。</p>
+
+                    <p class="dialogue">「もうこの建物も古いからねえ」</p>
+
+                    <p class="dialogue">「修理代かかる？」</p>
+
+                    <p class="dialogue">「まあね。でも何とかするわよ」</p>
+
+                    <p class="narrative">和江が軽く笑う。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は鍋の火を弱めながら、少しだけ考えた。</p>
+
+                    <p class="dialogue">「じゃあ私がプロになったら建て直すよ」</p>
+
+                    <p class="dialogue">「ここを？」</p>
+
+                    <p class="dialogue">「うん。丸ごと」</p>
+
+                    <p class="narrative">あまりに普通の口調だったので、和江の方が一拍遅れて笑った。</p>
+
+                    <p class="dialogue">「随分大きく出たわね、<span data-name="first">霞</span>」</p>
+
+                    <p class="dialogue">「だってこのまま毎年直してたら、その方がお金かかりそうじゃん」</p>
+
+                    <p class="dialogue">「あなた、ヒーローになったら一体いくら稼ぐつもりなの」</p>
+
+                    <p class="dialogue">「めちゃくちゃ」</p>
+
+                    <p class="dialogue">「具体性がゼロね」</p>
+
+                    <p class="dialogue">「人気ヒーローになればいけるでしょ。建物綺麗にして、ご飯ももうちょっといいやつにして、エアコンも全部新しくする」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は真顔で指を折っていく。</p>
+
+                    <p class="dialogue">「あと庭の遊具も替える。冷蔵庫も大きいの買う」</p>
+
+                    <p class="dialogue">「期待してるわね」</p>
+
+                    <p class="dialogue">「任せて」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は笑った。</p>
+
+                    <p class="dialogue">「だからそれまで、この建物には頑張ってもらわないと」</p>
+
+                    <p class="narrative">鍋の蓋を開け、湯気の向こうを覗き込む。</p>
+
+                    <p class="dialogue">「私が稼げるようになる前に潰れないでよー」</p>
+
+                    <p class="dialogue">「縁起でもないこと言わないの」</p>
+
+                    <p class="dialogue">「はーい」</p>
+
+                    <p class="narrative">その声に、抱いていた子どもが目を覚ましてまた泣き始めた。</p>
+
+                    <p class="dialogue">「うわ、ごめんごめん」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は慌てて抱き直した。</p>
+
+                    <div class="scene-space" aria-hidden="true"></div>
+
+                    <p class="narrative scene-break">夜。</p>
+
+                    <p class="narrative">小さな子どもたちが眠り、施設の中がようやく静かになった頃。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は食堂の端で、乾いた洗濯物を畳んでいた。</p>
+
+                    <p class="narrative">小さなシャツ。</p>
+
+                    <p class="narrative">靴下。</p>
+
+                    <p class="narrative">タオル。</p>
+
+                    <p class="narrative">一枚ずつ畳み、人数ごとに分けていく。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん」</p>
+
+                    <p class="narrative">小さな声がして顔を上げた。</p>
+
+                    <p class="narrative">パジャマ姿の叶翔が、廊下からこちらを覗いている。</p>
+
+                    <p class="dialogue">「どうしたの。寝たんじゃなかった？」</p>
+
+                    <p class="dialogue">「寝れない」</p>
+
+                    <p class="dialogue">「昼間あんなに走ったのに？」</p>
+
+                    <p class="dialogue">「寝れないの」</p>
+
+                    <p class="dialogue">「そっか」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が横を軽く叩くと、叶翔は素直に隣へ座った。</p>
+
+                    <p class="narrative">少しの間、二人で黙って洗濯物を畳む。</p>
+
+                    <p class="narrative">叶翔は小さな靴下を一足合わせてから、ぽつりと聞いた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん、明日帰る？」</p>
+
+                    <p class="dialogue">「うん。明日の夕方には学校戻るよ」</p>
+
+                    <p class="dialogue">「やだ」</p>
+
+                    <p class="dialogue">「学校あるからね」</p>
+
+                    <p class="dialogue">「ずっとここにいればいいのに」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は少し笑った。</p>
+
+                    <p class="dialogue">「それだとヒーローになれなくなっちゃうよ」</p>
+
+                    <p class="dialogue">「ヒーローにならなくてもいい」</p>
+
+                    <p class="dialogue">「私はなりたいんだよ」</p>
+
+                    <p class="dialogue">「なんで？」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>の手が止まった。</p>
+
+                    <p class="narrative">すぐには答えず、静かな廊下へ視線を向ける。</p>
+
+                    <p class="narrative">閉じた部屋の向こうから、小さな寝息が聞こえる。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>はしばらく考えてから、またタオルを畳み始めた。</p>
+
+                    <p class="dialogue">「みんなが困った時に、助けられる人になりたいからかな」</p>
+
+                    <p class="dialogue">「……<span data-name="first">霞</span>姉ちゃん、もう助けてるよ」</p>
+
+                    <p class="narrative">今度は<span data-name="first">霞</span>の手が完全に止まった。</p>
+
+                    <p class="dialogue">「私が？」</p>
+
+                    <p class="dialogue">「うん」</p>
+
+                    <p class="narrative">叶翔は当然のように頷いた。</p>
+
+                    <p class="dialogue">「みんな<span data-name="first">霞</span>姉ちゃん帰ってくるの、ずっと待ってるもん」</p>
+
+                    <p class="dialogue">「……そっか」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は少しだけ目を丸くして、それから叶翔の頭を撫でた。</p>
+
+                    <p class="dialogue">「じゃあ、もっと上手にならないとね」</p>
+
+                    <p class="dialogue">「何が？」</p>
+
+                    <p class="dialogue">「助けるの」</p>
+
+                    <p class="dialogue">「もう上手だよ」</p>
+
+                    <p class="dialogue">「叶翔は優しいなあ」</p>
+
+                    <p class="dialogue">「優しいんじゃないもん。本当だもん！」</p>
+
+                    <p class="dialogue">「はいはい」</p>
+
+                    <p class="dialogue">「ほんとだもん！」</p>
+
+                    <p class="narrative">むきになる叶翔を見て、<span data-name="first">霞</span>は声を立てて笑った。</p>
+
+                    <div class="scene-space" aria-hidden="true"></div>
+
+                    <p class="narrative scene-break">翌日の夕方。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>が鞄を持って門を出る頃には、施設の子どもたちが何人も庭へ集まっていた。</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん、また来週来る？」</p>
+
+                    <p class="dialogue">「予定合えばね」</p>
+
+                    <p class="dialogue">「絶対来て！」</p>
+
+                    <p class="dialogue">「宿題終わってたら考える」</p>
+
+                    <p class="dialogue">「えー！」</p>
+
+                    <p class="dialogue">「<span data-name="first">霞</span>姉ちゃん！」</p>
+
+                    <p class="narrative">叶翔が門のところまで走ってくる。</p>
+
+                    <p class="dialogue">「なに？」</p>
+
+                    <p class="dialogue">「帰ってきてね」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は少しだけ目を細めた。</p>
+
+                    <p class="narrative">それから、叶翔の髪をぐしゃぐしゃと撫でる。</p>
+
+                    <p class="dialogue">「帰ってくるよ」</p>
+
+                    <p class="dialogue">「絶対？」</p>
+
+                    <p class="dialogue">「絶対」</p>
+
+                    <p class="narrative">叶翔がようやく笑った。</p>
+
+                    <p class="dialogue">「じゃあねー！」</p>
+
+                    <p class="dialogue">「学校頑張って！」</p>
+
+                    <p class="dialogue">「怪我しないでね！」</p>
+
+                    <p class="dialogue">「はーい。みんなも元気でねー！」</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>は坂を下りながら何度も振り返り、そのたびに大きく手を振った。</p>
+
+                    <p class="narrative">古い建物の前で、家族たちがいつまでも手を振り返している。</p>
+
+                    <p class="narrative">やがて角を曲がり、その姿が見えなくなるまで。</p>
+
+                    <p class="narrative"><span data-name="first">霞</span>はずっと、笑っていた。</p>
+
+                </div>
+            </article>
+
+            <nav class="story-nav" aria-label="小説ナビゲーション">
+                <div class="nav-inner">
+                    <a class="nav-link" href="kabe-03.html">← 03</a>
+                    <a class="nav-center" href="../main.html">MAIN</a>
+                    <a class="nav-link next" href="kabe-05.html">05 →</a>
+                </div>
+            </nav>
+
+            <nav class="menu-overlay" id="menuOverlay" aria-hidden="true">
+                <ul class="menu-list">
+                    <li>
+                        <a href="../index.html">index</a>
+                    </li>
+                    <li>
+                        <a href="../about.html">about</a>
+                    </li>
+                    <li>
+                        <a href="../main.html">main</a>
+                    </li>
+                    <li>
+                        <a href="../en.html">En.</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </main>
+
+        <script>
+            const menuButton = document.getElementById('menuButton');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            menuButton.addEventListener('click', function () {
+                const isOpen = menuButton.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                menuButton.setAttribute('aria-expanded', isOpen);
+                menuOverlay.setAttribute('aria-hidden', !isOpen);
+            });
+
+            function getDreamName(key, defaultValue) {
+                try {
+                    const saved = localStorage.getItem(key);
+                    return saved && saved.trim() ? saved.trim() : defaultValue;
+                } catch (error) {
+                    return defaultValue;
+                }
+            }
+
+            const dreamLastName = getDreamName('dreamLastName', '久我');
+            const dreamFirstName = getDreamName('dreamFirstName', '霞');
+
+            document.querySelectorAll('[data-name="last"]').forEach(function (el) {
+                el.textContent = dreamLastName;
+            });
+
+            document.querySelectorAll('[data-name="first"]').forEach(function (el) {
+                el.textContent = dreamFirstName;
+            });
+        </script>
+    </body>
+</html>
