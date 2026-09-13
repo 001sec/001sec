@@ -84,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .name-field input{width:100%;border:0;border-bottom:1px solid rgba(0,0,0,.34);border-radius:0;background:transparent;padding:10px 2px 9px;color:#111;font-family:"Noto Serif JP",serif;font-size:15px;outline:none}
 .name-field input::placeholder{color:rgba(0,0,0,.27);opacity:1}
 .name-field input:focus{border-bottom-color:var(--orange)}
-.name-default{grid-column:2/4;margin-top:0;color:#999;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:8px;letter-spacing:.08em;line-height:1.8}.name-actions{grid-column:2/4;display:flex;align-items:center;gap:16px;margin-top:5px}.name-save-state{color:#999;font-size:8px;letter-spacing:.16em}.name-reset{border:0;border-bottom:1px solid rgba(0,0,0,.28);background:transparent;color:#777;font-family:"Montserrat",sans-serif;font-size:8px;letter-spacing:.18em;cursor:pointer;padding:2px 0 3px}.name-reset:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.name-default{grid-column:2/4;margin-top:0;color:#999;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:8px;letter-spacing:.08em;line-height:1.8}.name-actions{grid-column:2/4;display:flex;align-items:center;gap:16px;margin-top:7px}.name-save-state{min-width:62px;color:#999;font-size:8px;letter-spacing:.16em}.name-set,.name-reset{border:0;background:transparent;font-family:"Montserrat",sans-serif;font-size:8px;letter-spacing:.18em;cursor:pointer;padding:5px 0 4px}.name-set{color:#111;border-bottom:1px solid var(--orange)}.name-set:hover{color:var(--orange)}.name-reset{color:#777;border-bottom:1px solid rgba(0,0,0,.28)}.name-reset:hover{color:var(--orange);border-bottom-color:var(--orange)}
 
 .story-catalog{border-top:1px solid rgba(0,0,0,.22)}
 .story-type{display:grid;grid-template-columns:160px 1fr;gap:50px;padding:45px 0;border-bottom:1px solid rgba(0,0,0,.22)}
@@ -195,8 +195,8 @@ a{color:inherit;text-decoration:none}
         <label for="dream-given">名前</label>
         <input id="dream-given" name="given" type="text" placeholder="霞" autocomplete="given-name">
       </div>
-      <div class="name-default">入力内容はこのブラウザに自動保存されます。未入力の場合：久我　霞</div>
-      <div class="name-actions"><span class="name-save-state" id="name-save-state" aria-live="polite">DEFAULT</span><button class="name-reset" id="name-reset" type="button">RESET</button></div>
+      <div class="name-default">苗字・名前を入力して SET を押すと、このブラウザに保存されます。未入力の場合：久我　霞</div>
+      <div class="name-actions"><span class="name-save-state" id="name-save-state" aria-live="polite">DEFAULT</span><button class="name-set" id="name-set" type="button">SET</button><button class="name-reset" id="name-reset" type="button">RESET</button></div>
     </div>
   </div>
 
@@ -272,6 +272,7 @@ a{color:inherit;text-decoration:none}
   const lastInput=document.getElementById('dream-surname');
   const firstInput=document.getElementById('dream-given');
   const state=document.getElementById('name-save-state');
+  const setButton=document.getElementById('name-set');
   const reset=document.getElementById('name-reset');
   if(!lastInput||!firstInput) return;
 
@@ -288,31 +289,53 @@ a{color:inherit;text-decoration:none}
       return true;
     }catch(e){return false;}
   }
-  function updateState(ok=true){
+  function showSavedState(){
     if(!state) return;
-    const last=lastInput.value.trim();
-    const first=firstInput.value.trim();
-    if(!ok){state.textContent='SAVE ERROR';return;}
+    const last=read(LAST_KEY);
+    const first=read(FIRST_KEY);
     state.textContent=(last||first)?'SAVED':'DEFAULT';
+  }
+  function markUnsaved(){
+    if(!state) return;
+    const savedLast=read(LAST_KEY);
+    const savedFirst=read(FIRST_KEY);
+    const currentLast=lastInput.value.trim();
+    const currentFirst=firstInput.value.trim();
+    state.textContent=(savedLast===currentLast && savedFirst===currentFirst)
+      ? ((savedLast||savedFirst)?'SAVED':'DEFAULT')
+      : 'UNSAVED';
   }
   function save(){
     const ok1=write(LAST_KEY,lastInput.value);
     const ok2=write(FIRST_KEY,firstInput.value);
-    updateState(ok1&&ok2);
+    if(state) state.textContent=(ok1&&ok2)?((lastInput.value.trim()||firstInput.value.trim())?'SAVED':'DEFAULT'):'SAVE ERROR';
   }
 
   lastInput.value=read(LAST_KEY);
   firstInput.value=read(FIRST_KEY);
-  updateState();
-  lastInput.addEventListener('input',save);
-  firstInput.addEventListener('input',save);
+  showSavedState();
+  lastInput.addEventListener('input',markUnsaved);
+  firstInput.addEventListener('input',markUnsaved);
+
+  if(setButton){
+    setButton.addEventListener('click',save);
+  }
+
+  [lastInput,firstInput].forEach(function(input){
+    input.addEventListener('keydown',function(event){
+      if(event.key==='Enter'){
+        event.preventDefault();
+        save();
+      }
+    });
+  });
 
   if(reset){
     reset.addEventListener('click',function(){
       lastInput.value='';
       firstInput.value='';
       try{localStorage.removeItem(LAST_KEY);localStorage.removeItem(FIRST_KEY);}catch(e){}
-      updateState();
+      showSavedState();
       lastInput.focus();
     });
   }
