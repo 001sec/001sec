@@ -31,8 +31,8 @@ a{color:inherit;text-decoration:none}
 .hero-content{position:relative;z-index:4;width:min(82%,1040px);margin:auto;padding-top:clamp(260px,31vh,360px);padding-bottom:130px}
 .main-number{font-family:"Bodoni Moda",serif;font-weight:700;font-size:clamp(108px,21vw,230px);line-height:.72;letter-spacing:-.075em}
 .seconds{margin-top:34px;font-size:clamp(29px,6.4vw,62px);letter-spacing:.28em;font-weight:500}
-.afterimage{display:flex;align-items:center;gap:22px;margin-top:30px;font-size:13px;letter-spacing:.32em}
-.afterimage::before{content:"";width:36px;height:2px;background:var(--orange)}
+.hero-kicker{display:flex;align-items:center;gap:22px;margin-top:30px;font-size:13px;letter-spacing:.32em}
+.hero-kicker::before{content:"";width:36px;height:2px;background:var(--orange)}
 .slogan{margin-top:64px;font-family:"Bodoni Moda",serif;font-size:clamp(22px,3.5vw,32px);line-height:1.35;letter-spacing:.055em;font-weight:600}
 .enter{display:inline-flex;align-items:center;gap:22px;margin-top:66px;font-size:15px;letter-spacing:.34em}
 .enter-line{position:relative;width:110px;height:1px;background:var(--orange)}
@@ -43,7 +43,7 @@ a{color:inherit;text-decoration:none}
 .directory-inner{width:min(760px,72%)}
 .nav-item{display:grid;grid-template-columns:62px 42px 1fr;align-items:start;margin-bottom:clamp(30px,4.5vh,54px)}
 .nav-number{color:var(--orange);font-size:17px}.nav-dash{width:24px;height:1px;margin-top:11px;background:var(--orange)}
-.nav-title{display:block;font-size:clamp(20px,2.3vw,27px);letter-spacing:.32em;font-weight:500}.nav-sub{display:block;margin-top:8px;color:#777;font-size:10px;letter-spacing:.15em}
+.nav-title{display:block;font-size:clamp(20px,2.3vw,27px);letter-spacing:.32em;font-weight:500}.nav-sub{display:block;margin-top:9px;color:#777;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:9px;letter-spacing:.12em}
 .archive-card{position:absolute;right:0;bottom:0;width:min(280px,28vw);height:min(295px,34vh);min-height:220px;display:flex;align-items:center;justify-content:center;background:#111;color:#fff}
 .archive-card::before{content:"";position:absolute;left:0;top:0;width:9px;height:70px;background:var(--orange)}
 .archive-card-text{font-size:9px;line-height:2.2;letter-spacing:.32em}.archive-card-text strong{display:block;margin-bottom:10px;font-family:"Bodoni Moda",serif;font-size:17px;letter-spacing:.1em}
@@ -53,14 +53,14 @@ a{color:inherit;text-decoration:none}
 .section-inner{width:min(100%,980px);margin:auto}
 .section-label{margin-bottom:18px;color:var(--orange);font-size:10px;letter-spacing:.34em;font-weight:600}
 .section-title{font-family:"Bodoni Moda",serif;font-size:clamp(58px,9vw,100px);line-height:.88;letter-spacing:-.04em;font-weight:600}
-.section-lead{max-width:700px;margin-top:30px;font-size:clamp(15px,1.55vw,18px);line-height:1.9;letter-spacing:.055em}
-.section-copy{color:#a7a7a7;font-size:13px;line-height:2;letter-spacing:.04em}
+.section-lead{max-width:700px;margin-top:28px;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(14px,1.25vw,16px);font-weight:500;line-height:2.05;letter-spacing:.075em}
+.section-copy{color:#a7a7a7;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:11px;line-height:2.15;letter-spacing:.065em}
 
 /* about — simple, not lyrical */
 .about{background:var(--black);padding-bottom:185px;overflow:hidden}
 .about-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:80px;align-items:end}
 .about .section-title{font-size:clamp(62px,9vw,104px)}
-.about .section-lead{font-size:clamp(17px,1.75vw,21px);line-height:1.75;letter-spacing:.02em}
+.about .section-lead{font-size:clamp(14px,1.25vw,16px);line-height:2.05;letter-spacing:.075em}
 .about-copy{margin-top:28px;max-width:650px}
 .site-meta{border-top:1px solid rgba(255,255,255,.16)}
 .meta-row{display:grid;grid-template-columns:105px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.16)}
@@ -74,7 +74,7 @@ a{color:inherit;text-decoration:none}
 .stories-head,.story-catalog{width:min(100%,980px);margin-left:auto;margin-right:auto}
 .stories-head{margin-bottom:58px}
 .stories .section-title{color:#111}
-.stories .section-lead{color:#555;margin-top:24px}
+.stories .section-lead{color:#666;margin-top:22px}
 
 /* name conversion fields */
 .name-converter{margin-top:34px;display:grid;grid-template-columns:auto minmax(150px,220px) minmax(150px,220px);gap:12px;align-items:end;max-width:650px;padding-top:22px;border-top:1px solid rgba(0,0,0,.18)}
@@ -84,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .name-field input{width:100%;border:0;border-bottom:1px solid rgba(0,0,0,.34);border-radius:0;background:transparent;padding:10px 2px 9px;color:#111;font-family:"Noto Serif JP",serif;font-size:15px;outline:none}
 .name-field input::placeholder{color:rgba(0,0,0,.27);opacity:1}
 .name-field input:focus{border-bottom-color:var(--orange)}
-.name-default{grid-column:2/4;margin-top:0;color:#999;font-size:8px;letter-spacing:.12em}
+.name-default{grid-column:2/4;margin-top:0;color:#999;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:8px;letter-spacing:.08em;line-height:1.8}.name-actions{grid-column:2/4;display:flex;align-items:center;gap:16px;margin-top:5px}.name-save-state{color:#999;font-size:8px;letter-spacing:.16em}.name-reset{border:0;border-bottom:1px solid rgba(0,0,0,.28);background:transparent;color:#777;font-family:"Montserrat",sans-serif;font-size:8px;letter-spacing:.18em;cursor:pointer;padding:2px 0 3px}.name-reset:hover{color:var(--orange);border-bottom-color:var(--orange)}
 
 .story-catalog{border-top:1px solid rgba(0,0,0,.22)}
 .story-type{display:grid;grid-template-columns:160px 1fr;gap:50px;padding:45px 0;border-bottom:1px solid rgba(0,0,0,.22)}
@@ -112,27 +112,27 @@ a{color:inherit;text-decoration:none}
 .notes{background:#0d0d0d;color:#f4f4f4;padding-top:150px}
 .notes-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:95px;align-items:start}
 .notes .section-title{font-size:clamp(62px,9vw,104px)}
-.notes .section-lead{color:#bbb}
+.notes .section-lead{color:#b8b8b8}
 .note-list{border-top:1px solid rgba(255,255,255,.17)}
 .note-item{display:grid;grid-template-columns:48px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.17)}
-.note-no{color:var(--orange);font-size:10px;letter-spacing:.22em}.note-item h3{margin-bottom:9px;font-size:12px;letter-spacing:.24em}.note-item p{color:#aaa;font-size:11px;line-height:1.9;letter-spacing:.04em}
+.note-no{color:var(--orange);font-size:10px;letter-spacing:.22em}.note-item h3{margin-bottom:10px;font-size:12px;letter-spacing:.24em}.note-item p{color:#aaa;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:10.5px;line-height:2.05;letter-spacing:.055em}
 .update{margin-top:30px;font-size:9px;color:#777;letter-spacing:.18em}.update strong{color:#eee;font-weight:500}
 
 
 /* notes profile */
-.profile-card{margin-top:38px;padding-top:22px;border-top:1px solid rgba(0,0,0,.18)}
+.profile-card{margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.17)}
 .profile-kicker{margin-bottom:16px;color:var(--orange);font-size:8px;letter-spacing:.26em;font-weight:600}
-.profile-name{font-family:"Bodoni Moda",serif;font-size:36px;line-height:1;margin-bottom:20px}
+.profile-name{font-family:"Bodoni Moda",serif;font-size:32px;line-height:1;margin-bottom:22px;letter-spacing:.04em}
 .profile-grid{display:grid;grid-template-columns:80px 1fr;gap:10px 18px}
-.profile-key{color:#999;font-size:8px;letter-spacing:.2em}
-.profile-value{color:#333;font-size:10px;line-height:1.7;letter-spacing:.08em}
-.profile-note{margin-top:18px;color:#999;font-size:8px;line-height:1.8;letter-spacing:.08em}
+.profile-key{color:#777;font-size:8px;letter-spacing:.2em}
+.profile-value{color:#d0d0d0;font-size:9.5px;line-height:1.75;letter-spacing:.1em}
+.profile-note{margin-top:20px;color:#888;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:9px;line-height:2;letter-spacing:.06em}
 @media(max-width:760px){
 .top-brand{top:28px;left:6vw;padding:7px 8px 6px;font-size:8px;background:rgba(0,0,0,.12)}.top-brand::before{width:18px;margin-bottom:7px}.menu-icon{top:31px;right:6vw;width:34px}
-.accent-top{width:16px;height:130px}.hero-content{width:84%;padding-top:255px}.main-number{font-size:clamp(112px,34vw,160px)}.seconds{font-size:clamp(28px,9vw,38px);letter-spacing:.22em}.afterimage{gap:15px;font-size:10px;letter-spacing:.23em}.slogan{margin-top:52px;font-size:22px}
+.accent-top{width:16px;height:130px}.hero-content{width:84%;padding-top:255px}.main-number{font-size:clamp(112px,34vw,160px)}.seconds{font-size:clamp(28px,9vw,38px);letter-spacing:.22em}.hero-kicker{gap:15px;font-size:10px;letter-spacing:.23em}.slogan{margin-top:52px;font-size:22px}
 .directory{min-height:100svh;clip-path:polygon(0 0,100% 11%,100% 100%,0 100%);padding:150px 7% 90px}.directory-inner{width:100%;padding-right:80px}.nav-item{grid-template-columns:46px 31px 1fr;margin-bottom:34px}.nav-title{font-size:18px}.archive-card{width:33vw;height:210px;min-height:0}.archive-card-text{font-size:7px;letter-spacing:.22em}.archive-card-text strong{font-size:12px}
-.screen-section{min-height:100svh;padding:105px 8% 120px}.about{padding-bottom:150px}.about-grid,.notes-layout{grid-template-columns:1fr;gap:48px}.section-title,.about .section-title,.notes .section-title{font-size:58px}.about .section-lead{font-size:16px}.about::before{bottom:50px;transform:rotate(-10deg)}.about::after{height:90px}
-.stories{padding:75px 8% 145px}.story-type{grid-template-columns:1fr;gap:18px;padding:34px 0}.type-label{padding-top:0}.long-title{font-size:36px}.name-converter{grid-template-columns:1fr 1fr;gap:13px 16px}.name-converter-title{grid-column:1/-1;padding-right:0}.name-default{grid-column:1/-1}.episode{grid-template-columns:66px 1fr 20px;gap:10px;padding:14px 0}.stories::before{bottom:50px;transform:rotate(-8deg)}.stories::after{height:82px}
+.screen-section{min-height:100svh;padding:105px 8% 120px}.about{padding-bottom:150px}.about-grid,.notes-layout{grid-template-columns:1fr;gap:48px}.section-title,.about .section-title,.notes .section-title{font-size:58px}.about .section-lead{font-size:14px}.about::before{bottom:50px;transform:rotate(-10deg)}.about::after{height:90px}
+.stories{padding:75px 8% 145px}.story-type{grid-template-columns:1fr;gap:18px;padding:34px 0}.type-label{padding-top:0}.long-title{font-size:36px}.name-converter{grid-template-columns:1fr 1fr;gap:13px 16px}.name-converter-title{grid-column:1/-1;padding-right:0}.name-default{grid-column:1/-1}.name-actions{grid-column:1/-1}.episode{grid-template-columns:66px 1fr 20px;gap:10px;padding:14px 0}.stories::before{bottom:50px;transform:rotate(-8deg)}.stories::after{height:82px}
 .notes{padding-top:135px}
 }
 </style>
@@ -147,7 +147,7 @@ a{color:inherit;text-decoration:none}
   <div class="hero-content">
     <div class="main-number">0.01</div>
     <div class="seconds">SECONDS</div>
-    <div class="afterimage">KATSUKI BAKUGO / FANFICTION</div>
+    <div class="hero-kicker">KATSUKI BAKUGO / FANFICTION</div>
     <div class="slogan">NO ROOM FOR<br>SECOND PLACE.</div>
     <a href="#menu" class="enter">ENTER <span class="enter-line"></span></a>
   </div>
@@ -159,7 +159,7 @@ a{color:inherit;text-decoration:none}
     <a href="#stories" class="nav-item"><span class="nav-number">02</span><span class="nav-dash"></span><span><span class="nav-title">STORIES</span><span class="nav-sub">長編・短編・シリーズ</span></span></a>
     <a href="#notes" class="nav-item"><span class="nav-number">03</span><span class="nav-dash"></span><span><span class="nav-title">NOTES</span><span class="nav-sub">閲覧前の注意 / 更新</span></span></a>
   </div>
-  <div class="archive-card"><div class="archive-card-text"><strong>0.01 SECONDS</strong>EST. 2026<br>K.B. ARCHIVE</div></div>
+  <div class="archive-card"><div class="archive-card-text"><strong>K.B. ARCHIVE</strong>DREAM FICTION<br>EST. 2026</div></div>
 </section>
 
 <section class="screen-section about" id="about">
@@ -167,7 +167,7 @@ a{color:inherit;text-decoration:none}
     <div>
       <div class="section-label">01 / ABOUT</div>
       <h2 class="section-title">ABOUT</h2>
-      <p class="section-lead">爆豪勝己の夢小説を置いている個人サイトです。<br>長編・短編・シリーズを不定期で更新しています。</p>
+      <p class="section-lead">爆豪勝己の夢小説を置いています。<br>長編、短編、シリーズ。更新は不定期。</p>
       <p class="section-copy about-copy">原作の設定・人物をお借りした非公式二次創作です。原作者様・出版社様・制作会社様、その他公式関係者様とは一切関係ありません。</p>
     </div>
     <div class="site-meta">
@@ -183,10 +183,10 @@ a{color:inherit;text-decoration:none}
   <div class="stories-head">
     <div class="section-label">02 / STORIES</div>
     <h2 class="section-title">STORIES</h2>
-    <p class="section-lead">長編・短編・シリーズから選んで読めます。</p>
+    <p class="section-lead">長編、短編、シリーズ。</p>
 
     <div class="name-converter" aria-label="名前変換">
-      <div class="name-converter-title">NAME</div>
+      <div class="name-converter-title">NAME SETTING</div>
       <div class="name-field">
         <label for="dream-surname">苗字</label>
         <input id="dream-surname" name="surname" type="text" placeholder="久我" autocomplete="family-name">
@@ -195,7 +195,8 @@ a{color:inherit;text-decoration:none}
         <label for="dream-given">名前</label>
         <input id="dream-given" name="given" type="text" placeholder="霞" autocomplete="given-name">
       </div>
-      <div class="name-default">未入力の場合：久我　霞</div>
+      <div class="name-default">入力内容はこのブラウザに自動保存されます。未入力の場合：久我　霞</div>
+      <div class="name-actions"><span class="name-save-state" id="name-save-state" aria-live="polite">DEFAULT</span><button class="name-reset" id="name-reset" type="button">RESET</button></div>
     </div>
   </div>
 
@@ -208,12 +209,12 @@ a{color:inherit;text-decoration:none}
         <div class="episode-index">
           <span class="episode-index-label">EPISODES</span>
           <div class="episode-row">
-            <a href="./stories/sonokabe/kabe-01.html" class="episode-link">01.</a>
-            <a href="./stories/sonokabe/kabe-02.html" class="episode-link">02.</a>
-            <a href="./stories/sonokabe/kabe-03.html" class="episode-link">03.</a>
-            <a href="./stories/sonokabe/kabe-04.html" class="episode-link">04.</a>
-            <a href="./stories/sonokabe/kabe-05.html" class="episode-link">05.</a>
-            <a href="./stories/sonokabe/kabe-06.html" class="episode-link latest">06.</a>
+            <a href="./sonokabe/kabe-01.html" class="episode-link">01.</a>
+            <a href="./sonokabe/kabe-02.html" class="episode-link">02.</a>
+            <a href="./sonokabe/kabe-03.html" class="episode-link">03.</a>
+            <a href="./sonokabe/kabe-04.html" class="episode-link">04.</a>
+            <a href="./sonokabe/kabe-05.html" class="episode-link">05.</a>
+            <a href="./sonokabe/kabe-06.html" class="episode-link latest">06.</a>
             <span class="last-up">LAST UP — SEP 13 2026</span>
           </div>
         </div>
@@ -243,19 +244,19 @@ a{color:inherit;text-decoration:none}
     <div>
       <div class="section-label">03 / NOTES</div>
       <h2 class="section-title">NOTES</h2>
-      <p class="section-lead">閲覧前のことと、書いている人のこと。</p>
+      <p class="section-lead">読む前のこと。<br>このサイトを作っている人のこと。</p>
       <p class="update"><strong>2026.09.13</strong> — SITE OPEN / FIRST ARCHIVE</p>
 
       <div class="profile-card">
-        <div class="profile-kicker">PROFILE / SAMPLE</div>
-        <div class="profile-name">En.</div>
+        <div class="profile-kicker">PROFILE / SITE OWNER</div>
+        <div class="profile-name">OWNER</div>
         <div class="profile-grid">
-          <span class="profile-key">WRITES</span><span class="profile-value">long form / short scenes</span>
-          <span class="profile-key">STYLE</span><span class="profile-value">canon-adjacent / dialogue heavy</span>
-          <span class="profile-key">LIKES</span><span class="profile-value">late nights / coffee / loud playlists</span>
-          <span class="profile-key">UPDATE</span><span class="profile-value">irregular, usually after midnight</span>
+          <span class="profile-key">ROLE</span><span class="profile-value">SITE OWNER / EDITOR</span>
+          <span class="profile-key">FOCUS</span><span class="profile-value">KATSUKI BAKUGO / DREAM FICTION</span>
+          <span class="profile-key">CONTENT</span><span class="profile-value">LONG / SHORT / SERIES</span>
+          <span class="profile-key">UPDATE</span><span class="profile-value">IRREGULAR</span>
         </div>
-        <p class="profile-note">※プロフィール文は仮置き。あとで好きな情報に差し替えられます。</p>
+        <p class="profile-note">作品の整理と、サイトの更新・管理をしています。</p>
       </div>
     </div>
     <div class="note-list">
@@ -266,5 +267,56 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+<script>
+(function(){
+  const lastInput=document.getElementById('dream-surname');
+  const firstInput=document.getElementById('dream-given');
+  const state=document.getElementById('name-save-state');
+  const reset=document.getElementById('name-reset');
+  if(!lastInput||!firstInput) return;
+
+  const LAST_KEY='dreamLastName';
+  const FIRST_KEY='dreamFirstName';
+
+  function read(key){
+    try{return localStorage.getItem(key)||'';}catch(e){return '';}
+  }
+  function write(key,value){
+    try{
+      const v=value.trim();
+      if(v){localStorage.setItem(key,v);}else{localStorage.removeItem(key);}
+      return true;
+    }catch(e){return false;}
+  }
+  function updateState(ok=true){
+    if(!state) return;
+    const last=lastInput.value.trim();
+    const first=firstInput.value.trim();
+    if(!ok){state.textContent='SAVE ERROR';return;}
+    state.textContent=(last||first)?'SAVED':'DEFAULT';
+  }
+  function save(){
+    const ok1=write(LAST_KEY,lastInput.value);
+    const ok2=write(FIRST_KEY,firstInput.value);
+    updateState(ok1&&ok2);
+  }
+
+  lastInput.value=read(LAST_KEY);
+  firstInput.value=read(FIRST_KEY);
+  updateState();
+  lastInput.addEventListener('input',save);
+  firstInput.addEventListener('input',save);
+
+  if(reset){
+    reset.addEventListener('click',function(){
+      lastInput.value='';
+      firstInput.value='';
+      try{localStorage.removeItem(LAST_KEY);localStorage.removeItem(FIRST_KEY);}catch(e){}
+      updateState();
+      lastInput.focus();
+    });
+  }
+})();
+</script>
 </body>
 </html>
