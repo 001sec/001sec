@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>07 買い物かご | その壁の外側で</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&amp;family=Montserrat:wght@300;400;500;600&amp;family=Noto+Serif+JP:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link as="image" fetchpriority="high" href="../../images/background.jpg" rel="preload"/>
+<style>
+:root{--black:#080808;--deep:#111;--paper:#f2efe9;--orange:#f36a16;--muted:#8b8b8b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--black)}
+body{background:var(--paper);color:#141414;font-family:"Montserrat",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+
+/* shared fixed navigation — matches index */
+.top-brand{position:fixed;top:52px;left:6vw;z-index:2000;display:inline-block;padding:8px 10px 8px;color:#fff;background:rgba(0,0,0,.14);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);font-size:9px;line-height:1.85;letter-spacing:.32em;font-weight:600;transition:.25s}
+.top-brand::before{content:"";display:block;width:20px;height:2px;margin-bottom:9px;background:var(--orange)}
+.top-brand:hover{background:rgba(0,0,0,.28)}
+.menu-icon{position:fixed;top:55px;right:6vw;z-index:2200;width:42px;height:34px;border:0;display:flex;flex-direction:column;justify-content:center;gap:8px;background:transparent;cursor:pointer;mix-blend-mode:difference}
+.menu-icon span{display:block;width:100%;height:2px;background:#fff;transition:transform .28s ease,width .25s ease,opacity .2s ease}
+.menu-icon:hover span:nth-child(2){width:68%}
+.menu-icon.active span:nth-child(1){transform:translateY(10px) rotate(45deg)}
+.menu-icon.active span:nth-child(2){opacity:0}
+.menu-icon.active span:nth-child(3){transform:translateY(-10px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;z-index:2100;display:grid;place-items:center;background:rgba(8,8,8,.97);opacity:0;visibility:hidden;pointer-events:none;transition:.28s}
+.menu-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
+.menu-list{list-style:none;width:min(82%,720px);border-top:1px solid rgba(255,255,255,.18)}
+.menu-list li{border-bottom:1px solid rgba(255,255,255,.18)}
+.menu-list a{display:grid;grid-template-columns:62px 1fr;align-items:center;padding:23px 0;color:#fff;font-size:13px;letter-spacing:.28em}
+.menu-list .menu-no{color:var(--orange);font-size:10px}
+.menu-list a:hover{color:var(--orange)}
+
+/* hero */
+.novel-hero{position:relative;min-height:78svh;overflow:hidden;background:#050505;color:#fff}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:brightness(.52) contrast(1.08)}
+.novel-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.77) 38%,rgba(0,0,0,.28) 74%,rgba(0,0,0,.18))}
+.novel-hero::after{content:"";position:absolute;z-index:3;left:-3%;bottom:-1px;width:106%;height:95px;background:var(--paper);clip-path:polygon(0 100%,100% 13%,100% 100%)}
+.accent-top{position:absolute;top:0;left:0;width:22px;height:175px;z-index:4;background:var(--orange)}
+.hero-orange-line{position:absolute;z-index:4;left:-2%;bottom:58px;width:105%;height:3px;background:var(--orange);transform:rotate(-4.1deg);transform-origin:left center}
+.hero-inner{position:relative;z-index:5;width:min(82%,1040px);margin:auto;padding:clamp(185px,23vh,260px) 0 145px}
+.story-kicker{margin-bottom:18px;color:var(--orange);font-size:10px;letter-spacing:.34em;font-weight:600}
+.episode-number{font-family:"Bodoni Moda",serif;font-size:clamp(96px,18vw,205px);font-weight:700;line-height:.7;letter-spacing:-.06em}
+.work-title{margin-top:34px;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(28px,4.3vw,48px);font-weight:600;line-height:1.45;letter-spacing:.06em}
+.chapter-row{display:flex;align-items:center;gap:18px;margin-top:30px}
+.chapter-row::before{content:"";width:36px;height:2px;background:var(--orange)}
+.chapter-name{font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(14px,1.6vw,17px);font-weight:500;letter-spacing:.12em}
+.name-status{margin-top:28px;color:rgba(255,255,255,.55);font-size:8px;line-height:1.8;letter-spacing:.16em}
+.name-status strong{color:#fff;font-weight:500}
+.name-status a{margin-left:8px;color:var(--orange);border-bottom:1px solid rgba(243,106,22,.55)}
+
+/* reading area */
+.reading-section{position:relative;background:var(--paper);padding:50px 0 0}
+.story-wrap{width:min(82%,720px);margin:0 auto;padding:38px 0 118px}
+.reading-meta{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:42px;padding-bottom:16px;border-bottom:1px solid rgba(0,0,0,.2);color:#777;font-size:8px;letter-spacing:.22em}
+.reading-meta span:first-child{color:var(--orange);font-weight:600}
+.story-text{font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(14px,1.35vw,16px);font-weight:500;line-height:2.12;letter-spacing:.055em;color:#24211f;word-break:normal;overflow-wrap:anywhere}
+.story-text p{margin-bottom:1.02em}
+.story-text .narrative{text-indent:1em}
+.story-text .dialogue,.story-text .impact{text-indent:0}
+.story-text .dialogue{color:#171513}
+.story-text .impact{color:#171513}
+.story-text .scene-break{margin-top:2.3em}
+.story-text .scene-space{height:4.2em}
+
+/* footer navigation */
+.story-nav{position:relative;background:#0d0d0d;color:#fff;padding:92px 9% 105px;overflow:hidden}
+.story-nav::before{content:"";position:absolute;left:-3%;top:0;width:106%;height:72px;background:var(--paper);clip-path:polygon(0 0,100% 0,0 100%)}
+.story-nav-inner{position:relative;z-index:2;width:min(100%,980px);margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:24px;padding-top:30px}
+.nav-side{display:flex;flex-direction:column;gap:8px}
+.nav-side.next{text-align:right;align-items:flex-end}
+.nav-label{color:#777;font-size:8px;letter-spacing:.22em}
+.nav-link{font-family:"Bodoni Moda",serif;font-size:clamp(25px,3.4vw,38px);line-height:1;color:#f4f4f4;transition:.2s}
+.nav-link:hover{color:var(--orange)}
+.nav-center{align-self:center;color:#888;font-size:9px;letter-spacing:.22em;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:6px}
+.nav-center:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.footer-mark{width:min(100%,980px);margin:72px auto 0;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;color:#666;font-size:8px;letter-spacing:.2em}
+
+
+ruby rt{font-size:.55em;letter-spacing:.02em;color:#777}
+
+@media(max-width:760px){
+.top-brand{top:28px;left:6vw;padding:7px 8px 6px;font-size:8px}.top-brand::before{width:18px;margin-bottom:7px}.menu-icon{top:31px;right:6vw;width:34px}
+.accent-top{width:16px;height:130px}.novel-hero{min-height:70svh}.hero-inner{width:84%;padding-top:185px;padding-bottom:120px}.episode-number{font-size:clamp(104px,34vw,155px)}.work-title{margin-top:30px;font-size:30px}.chapter-name{font-size:14px}.hero-orange-line{bottom:47px;transform:rotate(-7deg)}.novel-hero::after{height:80px}
+.reading-section{padding-top:32px}.story-wrap{width:82%;padding-top:30px;padding-bottom:95px}.story-text{font-size:14px;line-height:2.08;letter-spacing:.045em}.reading-meta{margin-bottom:34px}
+.story-nav{padding:82px 8% 82px}.story-nav-inner{grid-template-columns:1fr 1fr;row-gap:38px}.nav-center{grid-column:1/-1;grid-row:2;text-align:center;justify-self:center}.nav-link{font-size:26px}.footer-mark{margin-top:54px}
+.menu-list a{grid-template-columns:46px 1fr;padding:20px 0;font-size:12px}
+}
+
+@media(max-width:390px){
+.hero-inner{width:86%}.work-title{font-size:27px}.story-wrap{width:84%}.story-text{font-size:13.7px;line-height:2.06}.name-status{max-width:240px}.story-nav-inner{gap:18px}.nav-link{font-size:23px}
+}
+</style>
+</head>
+<body id="top">
+<a aria-label="トップへ戻る" class="top-brand" href="../../index.html#top">K.B.<br/>FANFICTION<br/>DIRECTORY</a>
+<button aria-expanded="false" aria-label="メニューを開く" class="menu-icon" id="menuButton" type="button"><span></span><span></span><span></span></button>
+<nav aria-hidden="true" class="menu-overlay" id="menuOverlay">
+<ul class="menu-list">
+<li><a href="../../index.html#top"><span class="menu-no">00</span><span>TOP</span></a></li>
+<li><a href="../../index.html#about"><span class="menu-no">01</span><span>ABOUT</span></a></li>
+<li><a href="../../index.html#stories"><span class="menu-no">02</span><span>STORIES</span></a></li>
+<li><a href="../../index.html#notes"><span class="menu-no">03</span><span>NOTES</span></a></li>
+</ul>
+</nav>
+<header class="novel-hero">
+<img alt="" class="hero-bg" decoding="async" fetchpriority="high" src="../../images/background.jpg"/>
+<div class="accent-top"></div>
+<div aria-hidden="true" class="hero-orange-line"></div>
+<div class="hero-inner">
+<div class="story-kicker">LONG / EPISODE 07</div>
+<div class="episode-number">07</div>
+<h1 class="work-title">その壁の外側で</h1>
+<div class="chapter-row"><h2 class="chapter-name">買い物かご</h2></div>
+<p class="name-status">NAME — <strong><span data-name="last">久我</span> <span data-name="first">霞</span></strong><a href="../../index.html#stories">CHANGE</a></p>
+</div>
+</header>
+<main class="reading-section">
+<article class="story-wrap">
+<div class="reading-meta"><span>07 / LONG STORY</span><span>KATSUKI BAKUGO / DREAM FICTION</span></div>
+<div class="story-text"><p class="narrative">金曜日の夕方。寮の共有キッチンでは、砂藤が夕食の下ごしらえを始めていた。</p><p class="narrative">雄英の寮では、共有で使う食材や日用品の補充を二人一組で回している。今週の買い出し当番は、<span data-name="first">霞</span>と爆豪だった。</p><p class="dialogue">「<span data-name="last">久我</span>、爆豪。悪い、ちょっと予定より減ってるもの多い」</p><p class="narrative">冷蔵庫を覗いていた砂藤が、二人へメモを差し出す。</p><p class="dialogue">「牛乳、卵、味噌。あとキッチンペーパー。肉も明日の朝の分まで考えると足りないかも」</p><p class="dialogue">「結構あるね」</p><p class="dialogue">「俺、もう火使い始めてるから離れられないんだ。頼めるか？」</p><p class="dialogue">「いいよ」</p><p class="narrative"><span data-name="first">霞</span>がメモを受け取る横で、爆豪も一度だけ内容を確認した。</p><p class="dialogue">「行くぞ」</p><p class="dialogue">「早いなあ。まだ財布取ってない」</p><p class="dialogue">「先に用意しとけや」</p><p class="dialogue">「当番表見たの今なんだけど」</p><p class="narrative">言いながら、<span data-name="first">霞</span>は自分の部屋へ財布を取りに戻った。</p><p class="narrative">十分後、二人は寮から一番近いスーパーへ向かっていた。</p><div aria-hidden="true" class="scene-space"></div><p class="narrative">夕食前の店内は、それなりに混んでいた。</p><p class="narrative"><span data-name="first">霞</span>が入口で大きめの買い物かごを取る。</p><p class="dialogue">「肉からでいい？」</p><p class="dialogue">「先に冷蔵いけ。最後に肉」</p><p class="dialogue">「はい、料理できる人の指示に従います」</p><p class="dialogue">「うるせぇ」</p><p class="narrative">最初に向かったのは乳製品売り場だった。</p><p class="narrative"><span data-name="first">霞</span>は牛乳を一本取り、かごへ入れかける。</p><p class="narrative">けれど、隣に貼られた特売の札を見て手を止めた。</p><p class="dialogue">「あ」</p><p class="narrative">一本を棚へ戻し、二本セットの方を取る。</p><p class="dialogue">「こっちの方が安い」</p><p class="dialogue">「一本多いだろ」</p><p class="dialogue">「明後日までにはなくなるよ」</p><p class="dialogue">「ならいい」</p><p class="narrative">次は卵。十個入りと十二個入りを持ち比べ、<span data-name="first">霞</span>はパックの端に小さく書かれた一個あたりの値段を見る。</p><p class="dialogue">「こっち」</p><p class="dialogue">「割れてねぇか見ろ」</p><p class="dialogue">「見てるよ」</p><p class="dialogue">「値段しか見てねぇ顔してたぞ」</p><p class="dialogue">「そんな顔ある？」</p><p class="narrative">爆豪が<span data-name="first">霞</span>の手からパックを取り、ひびがないことを確認してかごへ戻した。</p><p class="narrative"><span data-name="first">霞</span>は少しだけ口を尖らせる。</p><p class="dialogue">「爆豪くん、細かいね」</p><p class="dialogue">「雑にやる理由がねぇ」</p><p class="dialogue">「それはそう」</p><p class="narrative">肉売り場では、<span data-name="first">霞</span>の方が長かった。</p><p class="narrative">同じ豚肉のパックを二つ持ち、表の値段ではなく、下に小さく書かれた百グラムあたりの単価を見る。</p><p class="dialogue">「こっち安い」</p><p class="dialogue">「脂多すぎんだろ」</p><p class="dialogue">「でも百グラムで十八円違うよ」</p><p class="dialogue">「食えるとこ少なかったら意味ねぇ」</p><p class="narrative">言われて、<span data-name="first">霞</span>は透明なパック越しに肉を見比べた。</p><p class="dialogue">「……じゃあこっち」</p><p class="dialogue">「最初から中身見ろ」</p><p class="dialogue">「値段も大事だよ」</p><p class="dialogue">「質落としてまで削るとこじゃねぇだろ」</p><p class="narrative">爆豪が別のパックを追加する。</p><p class="narrative"><span data-name="first">霞</span>はその量を見て、頭の中でざっと計算した。</p><p class="dialogue">「これなら二十人分くらいはいけるかな」</p><p class="narrative">爆豪が横を見る。</p><p class="dialogue">「即答すんのかよ」</p><p class="dialogue">「だいたい分かるよ。このくらいなら」</p><p class="dialogue">「慣れてんな」</p><p class="dialogue">「まあね」</p><p class="narrative"><span data-name="first">霞</span>はそれ以上説明せず、次の棚へ向かった。</p><p class="narrative">味噌、キッチンペーパー、砂糖。砂藤から頼まれたものを順番にかごへ入れていく。</p><p class="narrative">途中、菓子売り場の前を通った時だけ、<span data-name="first">霞</span>の歩調が少し遅くなった。</p><p class="narrative">小袋に分かれたビスケットを一度見て、そのまま通り過ぎる。</p><p class="narrative">爆豪は何も言わなかった。</p><p class="narrative">二人で回ると、不思議なくらい買い物が早かった。</p><p class="narrative"><span data-name="first">霞</span>が値段と必要な数を見ている間に、爆豪が商品の状態を見る。</p><p class="narrative">爆豪が次の棚を探している間に、<span data-name="first">霞</span>がメモを消していく。</p><p class="narrative">別に相談したわけでもないのに、同じ場所で長く迷うことがほとんどなかった。</p><p class="dialogue">「あと何？」</p><p class="dialogue">「寮の分は終わり。爆豪くん、何かいる？」</p><p class="dialogue">「一味」</p><p class="dialogue">「やっぱり辛いやつ」</p><p class="dialogue">「何がやっぱりだ」</p><p class="narrative"><span data-name="first">霞</span>が笑った、その時だった。</p><p class="narrative">ポケットの中でスマートフォンが震える。</p><p class="narrative">画面を見た<span data-name="first">霞</span>は、その場で電話に出た。</p><p class="dialogue">「もしもし。うん、今買い物中」</p><p class="narrative">相手の声を聞いた途端、<span data-name="first">霞</span>の表情が少し緩んだ。</p><p class="dialogue">「……叶翔？　代わって」</p><p class="narrative">爆豪は隣で一味の瓶を見比べながら、特に口を挟まない。</p><p class="dialogue">「叶翔ー？　どうしたの。……うん、今週帰るよ。約束したじゃん」</p><p class="narrative">少し間が空く。</p><p class="dialogue">「お菓子？　何がいい？」</p><p class="narrative">また何か言われ、<span data-name="first">霞</span>が眉を上げた。</p><p class="dialogue">「それ高いやつじゃん。却下」</p><p class="narrative">電話の向こうから抗議が聞こえたのか、<span data-name="first">霞</span>が声を上げて笑う。</p><p class="dialogue">「分かった分かった。似たやつ探しとく。じゃあね」</p><p class="narrative">通話を切り、スマートフォンをポケットへ戻す。</p><p class="dialogue">「誰だ」</p><p class="dialogue">「叶翔」</p><p class="dialogue">「ガキか」</p><p class="dialogue">「うん。まだ小さい」</p><p class="dialogue">「ずいぶん懐かれてんな」</p><p class="narrative"><span data-name="first">霞</span>は少しだけ考えてから笑った。</p><p class="dialogue">「長い付き合いだからね」</p><p class="narrative">それだけ言って、さっき通り過ぎた菓子売り場へ戻る。</p><p class="narrative">先ほど見ていたものより一回り安い、小袋のビスケットを一つかごへ入れた。</p><p class="dialogue">「妥協したな」</p><p class="dialogue">「妥協じゃない。現実的な選択です」</p><p class="dialogue">「本人が納得すんのかよ」</p><p class="dialogue">「させる」</p><p class="narrative">妙に自信のある言い方に、爆豪が鼻を鳴らした。</p><div aria-hidden="true" class="scene-space"></div><p class="narrative">会計を終えると、袋は四つになった。</p><p class="narrative">牛乳、味噌、肉、調味料。見た目以上に重い。</p><p class="narrative"><span data-name="first">霞</span>が当然のように大きい二袋へ手を伸ばすより先に、爆豪がその二つを持ち上げた。</p><p class="dialogue">「あ、そっち私持つよ」</p><p class="dialogue">「いい」</p><p class="dialogue">「持てるよ？」</p><p class="dialogue">「知ってる」</p><p class="dialogue">「じゃあ返して」</p><p class="narrative">爆豪は返さない。</p><p class="dialogue">「持てる奴が持つのと、効率いい方が持つのは別だろ」</p><p class="narrative"><span data-name="first">霞</span>が一度、爆豪の両手の袋を見る。</p><p class="narrative">それから自分の手元に残った、卵とキッチンペーパーの軽い袋を見る。</p><p class="dialogue">「私だけ楽じゃない？」</p><p class="dialogue">「卵割んな。それでいい」</p><p class="dialogue">「……はいはい」</p><p class="narrative">取り返しても面倒になりそうなので、<span data-name="first">霞</span>はそのまま歩き出した。</p><p class="narrative">外はすっかり夕方になっていた。</p><p class="narrative">寮までの道を並んで歩く。</p><p class="narrative"><span data-name="first">霞</span>の持つ袋の中で、卵が小さく揺れる。</p><p class="dialogue">「爆豪くん」</p><p class="dialogue">「あ？」</p><p class="dialogue">「一緒に買い物すると早いね」</p><p class="dialogue">「無駄に迷わなきゃこんなもんだろ」</p><p class="dialogue">「いや、そうじゃなくて。私が値段見てる間に爆豪くん中身見てくれるし、次何いるかも大体分かってるし」</p><p class="narrative"><span data-name="first">霞</span>は前を向いたまま続けた。</p><p class="dialogue">「なんか楽だった」</p><p class="dialogue">「買い物ごときで何言ってんだ」</p><p class="dialogue">「感想くらい言ってもいいじゃん」</p><p class="narrative">爆豪は返事をしなかった。</p><p class="narrative">ただ、歩幅だけが少し<span data-name="first">霞</span>に合った。</p><div aria-hidden="true" class="scene-space"></div><p class="narrative">寮へ戻ると、砂藤がちょうど鍋の火を弱めているところだった。</p><p class="dialogue">「お、助かった。全部あったか？」</p><p class="dialogue">「あったよ」</p><p class="narrative"><span data-name="first">霞</span>が冷蔵品を出していく。</p><p class="narrative">袋の底から、小さなビスケットの袋が転がった。</p><p class="narrative">爆豪がそれを見る。</p><p class="dialogue">「それ寮のじゃねぇだろ」</p><p class="dialogue">「うん。これは週末持って帰るやつ」</p><p class="dialogue">「また実家か」</p><p class="dialogue">「うん」</p><p class="narrative">爆豪が牛乳を冷蔵庫へ入れながら言う。</p><p class="dialogue">「毎週帰ってねぇか？」</p><p class="dialogue">「帰れる週はね」</p><p class="dialogue">「……そんな好きなんかよ、家」</p><p class="narrative"><span data-name="first">霞</span>は手を止めた。</p><p class="narrative">それから、何を聞かれたのか不思議なくらい自然な顔で笑う。</p><p class="dialogue">「好きだよ。めちゃくちゃ」</p></div>
+</article>
+</main>
+<nav aria-label="小説ナビゲーション" class="story-nav">
+<div class="story-nav-inner">
+<div class="nav-side">
+<span class="nav-label">PREVIOUS EPISODE</span>
+<a class="nav-link" href="kabe-06.html">← 06</a>
+</div>
+<a class="nav-center" href="../../index.html#stories">EPISODE INDEX</a>
+<div class="nav-side next">
+<span class="nav-label">NEXT EPISODE / COMING SOON</span>
+<span aria-disabled="true" class="nav-link" style="opacity:.28;pointer-events:none">08 →</span>
+</div>
+</div>
+<div class="footer-mark">0.01 SECONDS / K.B. FANFICTION DIRECTORY</div>
+</nav>
+<script>
+const menuButton=document.getElementById('menuButton');
+const menuOverlay=document.getElementById('menuOverlay');
+function setMenu(open){
+  menuButton.classList.toggle('active',open);
+  menuOverlay.classList.toggle('active',open);
+  menuButton.setAttribute('aria-expanded',String(open));
+  menuOverlay.setAttribute('aria-hidden',String(!open));
+  document.body.style.overflow=open?'hidden':'';
+}
+menuButton.addEventListener('click',()=>setMenu(!menuOverlay.classList.contains('active')));
+menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)setMenu(false);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
+
+function getDreamName(key,defaultValue){
+  try{
+    const saved=localStorage.getItem(key);
+    return saved&&saved.trim()?saved.trim():defaultValue;
+  }catch(error){return defaultValue;}
+}
+const dreamLastName=getDreamName('dreamLastName','久我');
+const dreamFirstName=getDreamName('dreamFirstName','霞');
+document.querySelectorAll('[data-name="last"]').forEach(el=>{el.textContent=dreamLastName;});
+document.querySelectorAll('[data-name="first"]').forEach(el=>{el.textContent=dreamFirstName;});
+</script>
+</body>
+</html>
