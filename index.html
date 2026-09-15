@@ -92,6 +92,11 @@ a{color:inherit;text-decoration:none}
 .type-label b{font-size:18px;line-height:.8;font-weight:500}
 .long-title{font-family:"Noto Serif JP",serif;font-size:clamp(32px,4.8vw,54px);line-height:1.4;font-weight:600;letter-spacing:.02em}
 .work-meta{margin-top:8px;color:#777;font-size:9px;letter-spacing:.18em}
+.work-summary{margin-top:14px;max-width:700px;color:#5f5f5f;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:11px;line-height:2;letter-spacing:.055em}
+.long-list{display:flex;flex-direction:column}
+.long-work{padding-bottom:40px}
+.long-work + .long-work{padding-top:40px;border-top:1px solid rgba(0,0,0,.16)}
+.long-work:last-child{padding-bottom:0}
 
 /* episodes: compact horizontal index */
 .episode-index{margin-top:28px;padding-top:18px;border-top:1px solid rgba(0,0,0,.16)}
@@ -104,6 +109,20 @@ a{color:inherit;text-decoration:none}
 .last-up::before{content:"";width:18px;height:1px;background:var(--orange)}
 .placeholder-title{font-size:20px;letter-spacing:.16em;font-weight:500}
 .placeholder{margin-top:10px;color:#888;font-size:10px;letter-spacing:.18em}
+.short-list{border-top:1px solid rgba(0,0,0,.16)}
+.short-item{display:grid;grid-template-columns:48px 1fr 24px;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(0,0,0,.13);transition:.2s}
+.short-item:hover{padding-left:5px}
+.short-no{color:var(--orange);font-family:"Bodoni Moda",serif;font-size:17px}
+.short-title{font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:17px;font-weight:600;letter-spacing:.05em}
+.short-summary{margin-top:5px;color:#777;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:9.5px;line-height:1.8;letter-spacing:.045em}
+.short-arrow{font-size:15px;color:#999;text-align:right}
+.short-item:hover .short-title,.short-item:hover .short-arrow{color:var(--orange)}
+.series-list{display:flex;flex-direction:column}
+.series-work{padding-bottom:38px}
+.series-work + .series-work{padding-top:38px;border-top:1px solid rgba(0,0,0,.16)}
+.series-work:last-child{padding-bottom:0}
+.series-title{font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(25px,3.5vw,38px);line-height:1.45;font-weight:600;letter-spacing:.03em}
+.series-summary{margin-top:12px;max-width:700px;color:#666;font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-size:10.5px;line-height:1.95;letter-spacing:.05em}
 /* diagonal into notes */
 .stories::after{content:"";position:absolute;left:-3%;bottom:-1px;width:106%;height:105px;background:#0d0d0d;clip-path:polygon(0 100%,100% 20%,100% 100%)}
 .stories::before{content:"";position:absolute;z-index:2;left:-2%;bottom:65px;width:105%;height:3px;background:var(--orange);transform:rotate(-4.8deg);transform-origin:left center}
@@ -132,7 +151,7 @@ a{color:inherit;text-decoration:none}
 .accent-top{width:16px;height:130px}.hero-content{width:84%;padding-top:255px}.main-number{font-size:clamp(112px,34vw,160px)}.seconds{font-size:clamp(28px,9vw,38px);letter-spacing:.22em}.hero-kicker{gap:15px;font-size:10px;letter-spacing:.23em}.slogan{margin-top:52px;font-size:22px}
 .directory{min-height:100svh;clip-path:polygon(0 0,100% 11%,100% 100%,0 100%);padding:150px 7% 90px}.directory-inner{width:100%;padding-right:80px}.nav-item{grid-template-columns:46px 31px 1fr;margin-bottom:34px}.nav-title{font-size:18px}.archive-card{width:33vw;height:210px;min-height:0}.archive-card-text{font-size:7px;letter-spacing:.22em}.archive-card-text strong{font-size:12px}
 .screen-section{min-height:100svh;padding:105px 8% 120px}.about{padding-bottom:150px}.about-grid,.notes-layout{grid-template-columns:1fr;gap:48px}.section-title,.about .section-title,.notes .section-title{font-size:58px}.about .section-lead{font-size:14px}.about::before{bottom:50px;transform:rotate(-10deg)}.about::after{height:90px}
-.stories{padding:75px 8% 145px}.story-type{grid-template-columns:1fr;gap:18px;padding:34px 0}.type-label{padding-top:0}.long-title{font-size:36px}.name-converter{grid-template-columns:1fr 1fr;gap:13px 16px}.name-converter-title{grid-column:1/-1;padding-right:0}.name-default{grid-column:1/-1}.name-actions{grid-column:1/-1}.episode{grid-template-columns:66px 1fr 20px;gap:10px;padding:14px 0}.stories::before{bottom:50px;transform:rotate(-8deg)}.stories::after{height:82px}
+.stories{padding:75px 8% 145px}.story-type{grid-template-columns:1fr;gap:18px;padding:34px 0}.type-label{padding-top:0}.long-title{font-size:36px}.short-item{grid-template-columns:38px 1fr 18px;gap:12px;padding:16px 0}.short-title{font-size:15px}.short-summary{font-size:9px}.series-title{font-size:28px}.series-work{padding-bottom:30px}.series-work + .series-work{padding-top:30px}.work-summary{font-size:10.5px;line-height:1.95}.long-work{padding-bottom:30px}.long-work + .long-work{padding-top:30px}.name-converter{grid-template-columns:1fr 1fr;gap:13px 16px}.name-converter-title{grid-column:1/-1;padding-right:0}.name-default{grid-column:1/-1}.name-actions{grid-column:1/-1}.episode{grid-template-columns:66px 1fr 20px;gap:10px;padding:14px 0}.stories::before{bottom:50px;transform:rotate(-8deg)}.stories::after{height:82px}
 .notes{padding-top:135px}
 }
 </style>
@@ -203,12 +222,15 @@ a{color:inherit;text-decoration:none}
   <div class="story-catalog">
     <div class="story-type">
       <div class="type-label"><b>01</b><span>LONG</span></div>
-      <div>
-        <h3 class="long-title">その壁の外側で</h3>
-        <p class="work-meta">KATSUKI BAKUGO / 6 EPISODES / ONGOING</p>
-        <div class="episode-index">
-          <span class="episode-index-label">EPISODES</span>
-          <div class="episode-row">
+      <div class="long-list">
+
+        <article class="long-work">
+          <h3 class="long-title">その壁の外側で</h3>
+          <p class="work-meta">KATSUKI BAKUGO / 14 EPISODES / ONGOING</p>
+          <p class="work-summary">“守る”個性を持つ霞と、勝つために前へ進み続ける爆豪勝己。雄英での日々を重ねながら、二人の距離が少しずつ変わっていく長編。</p>
+          <div class="episode-index">
+            <span class="episode-index-label">EPISODES</span>
+            <div class="episode-row">
             <a href="./stories/sonokabe/kabe-01.html" class="episode-link">01.</a>
             <a href="./stories/sonokabe/kabe-02.html" class="episode-link">02.</a>
             <a href="./stories/sonokabe/kabe-03.html" class="episode-link">03.</a>
@@ -222,27 +244,191 @@ a{color:inherit;text-decoration:none}
             <a href="./stories/sonokabe/kabe-11.html" class="episode-link">11.</a>
             <a href="./stories/sonokabe/kabe-12.html" class="episode-link">12.</a>
             <a href="./stories/sonokabe/kabe-13.html" class="episode-link">13.</a>
-
             <a href="./stories/sonokabe/kabe-14.html" class="episode-link latest">14.</a>
-            <span class="last-up">LAST UP — SEP 13 2026</span>
+              <span class="last-up">LAST UP — SEP 15 2026</span>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="long-work">
+          <h3 class="long-title">親子さん世代</h3>
+          <p class="work-meta">KATSUKI BAKUGO / 30 EPISODES / COMPLETE</p>
+          <p class="work-summary">爆豪勝己と過ごす時間、その先にできた家族。親子の毎日を中心に、世代をまたいで続いていく暮らしを描く長編。</p>
+          <div class="episode-index">
+            <span class="episode-index-label">EPISODES / COMPLETE</span>
+            <div class="episode-row">
+            <a href="./stories/3sedai/3sedai-01.html" class="episode-link">01.</a>
+            <a href="./stories/3sedai/3sedai-02.html" class="episode-link">02.</a>
+            <a href="./stories/3sedai/3sedai-03.html" class="episode-link">03.</a>
+            <a href="./stories/3sedai/3sedai-04.html" class="episode-link">04.</a>
+            <a href="./stories/3sedai/3sedai-05.html" class="episode-link">05.</a>
+            <a href="./stories/3sedai/3sedai-06.html" class="episode-link">06.</a>
+            <a href="./stories/3sedai/3sedai-07.html" class="episode-link">07.</a>
+            <a href="./stories/3sedai/3sedai-08.html" class="episode-link">08.</a>
+            <a href="./stories/3sedai/3sedai-09.html" class="episode-link">09.</a>
+            <a href="./stories/3sedai/3sedai-10.html" class="episode-link">10.</a>
+            <a href="./stories/3sedai/3sedai-11.html" class="episode-link">11.</a>
+            <a href="./stories/3sedai/3sedai-12.html" class="episode-link">12.</a>
+            <a href="./stories/3sedai/3sedai-13.html" class="episode-link">13.</a>
+            <a href="./stories/3sedai/3sedai-14.html" class="episode-link">14.</a>
+            <a href="./stories/3sedai/3sedai-15.html" class="episode-link">15.</a>
+            <a href="./stories/3sedai/3sedai-16.html" class="episode-link">16.</a>
+            <a href="./stories/3sedai/3sedai-17.html" class="episode-link">17.</a>
+            <a href="./stories/3sedai/3sedai-18.html" class="episode-link">18.</a>
+            <a href="./stories/3sedai/3sedai-19.html" class="episode-link">19.</a>
+            <a href="./stories/3sedai/3sedai-20.html" class="episode-link">20.</a>
+            <a href="./stories/3sedai/3sedai-21.html" class="episode-link">21.</a>
+            <a href="./stories/3sedai/3sedai-22.html" class="episode-link">22.</a>
+            <a href="./stories/3sedai/3sedai-23.html" class="episode-link">23.</a>
+            <a href="./stories/3sedai/3sedai-24.html" class="episode-link">24.</a>
+            <a href="./stories/3sedai/3sedai-25.html" class="episode-link">25.</a>
+            <a href="./stories/3sedai/3sedai-26.html" class="episode-link">26.</a>
+            <a href="./stories/3sedai/3sedai-27.html" class="episode-link">27.</a>
+            <a href="./stories/3sedai/3sedai-28.html" class="episode-link">28.</a>
+            <a href="./stories/3sedai/3sedai-29.html" class="episode-link">29.</a>
+            <a href="./stories/3sedai/3sedai-30.html" class="episode-link latest">30.</a>
+              <span class="last-up">COMPLETE — 30 EPISODES</span>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
     <div class="story-type">
       <div class="type-label"><b>02</b><span>SHORT</span></div>
-      <div>
-        <div class="placeholder-title">短編</div>
-        <p class="placeholder">COMING SOON / 作品を追加したらここに並びます。</p>
+      <div class="short-list">
+        <a class="short-item" href="./stories/short/short-01.html">
+          <span class="short-no">01</span>
+          <span><span class="short-title">となりの席</span><span class="short-summary">席替えで爆豪の隣になった、それだけの話。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-02.html">
+          <span class="short-no">02</span>
+          <span><span class="short-title">雨宿り</span><span class="short-summary">突然の雨。屋根の下に二人きり。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-03.html">
+          <span class="short-no">03</span>
+          <span><span class="short-title">午前零時のキッチン</span><span class="short-summary">眠れない夜、寮のキッチンで鉢合わせる。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-04.html">
+          <span class="short-no">04</span>
+          <span><span class="short-title">風邪の日</span><span class="short-summary">珍しく寝込んだ爆豪の部屋を訪ねる。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-05.html">
+          <span class="short-no">05</span>
+          <span><span class="short-title">名前を呼ぶまで</span><span class="short-summary">ずっと名字で呼んでいた二人の、小さな変化。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-06.html">
+          <span class="short-no">06</span>
+          <span><span class="short-title">文化祭のあと</span><span class="short-summary">片付けの終わった校舎に、まだ少しだけ熱が残っている。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-07.html">
+          <span class="short-no">07</span>
+          <span><span class="short-title">ひとつだけ</span><span class="short-summary">何でもいいと言ったくせに、ひとつだけ譲らない。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-08.html">
+          <span class="short-no">08</span>
+          <span><span class="short-title">早起き</span><span class="short-summary">朝が早すぎる爆豪と、たまたま目が覚めた主人公。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-09.html">
+          <span class="short-no">09</span>
+          <span><span class="short-title">コンビニまで</span><span class="short-summary">買い忘れたものを取りに、夜道を二人で歩く。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-10.html">
+          <span class="short-no">10</span>
+          <span><span class="short-title">夏の終わり</span><span class="short-summary">夏休み最後の日。何も起きないはずだった。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-11.html">
+          <span class="short-no">11</span>
+          <span><span class="short-title">写真</span><span class="short-summary">一枚の写真に、思ったより長く残ったもの。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
+        <a class="short-item" href="./stories/short/short-12.html">
+          <span class="short-no">12</span>
+          <span><span class="short-title">ただの帰り道</span><span class="short-summary">授業の帰り。特別なことは何もない。</span></span>
+          <span class="short-arrow">→</span>
+        </a>
       </div>
     </div>
 
     <div class="story-type">
       <div class="type-label"><b>03</b><span>SERIES</span></div>
-      <div>
-        <div class="placeholder-title">シリーズ</div>
-        <p class="placeholder">COMING SOON / 作品を追加したらここに並びます。</p>
+      <div class="series-list">
+        <article class="series-work">
+          <h3 class="series-title">同居人、爆豪勝己</h3>
+          <p class="work-meta">KATSUKI BAKUGO / 10 EPISODES / COMPLETE</p>
+          <p class="series-summary">ひょんなことから期間限定で同居することになった二人。生活リズムも距離感も合わないはずなのに、少しずつ日常になっていく。</p>
+          <div class="episode-index">
+            <span class="episode-index-label">ROOMMATE / EPISODES</span>
+            <div class="episode-row">
+              <a href="./stories/roommate/roommate-01.html" class="episode-link">01.</a>
+              <a href="./stories/roommate/roommate-02.html" class="episode-link">02.</a>
+              <a href="./stories/roommate/roommate-03.html" class="episode-link">03.</a>
+              <a href="./stories/roommate/roommate-04.html" class="episode-link">04.</a>
+              <a href="./stories/roommate/roommate-05.html" class="episode-link">05.</a>
+              <a href="./stories/roommate/roommate-06.html" class="episode-link">06.</a>
+              <a href="./stories/roommate/roommate-07.html" class="episode-link">07.</a>
+              <a href="./stories/roommate/roommate-08.html" class="episode-link">08.</a>
+              <a href="./stories/roommate/roommate-09.html" class="episode-link">09.</a>
+              <a href="./stories/roommate/roommate-10.html" class="episode-link latest">10.</a>
+              <span class="last-up">COMPLETE — 10 EPISODES</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="series-work">
+          <h3 class="series-title">プロヒーローの休日</h3>
+          <p class="work-meta">KATSUKI BAKUGO / 9 EPISODES / ONGOING</p>
+          <p class="series-summary">忙しいプロヒーローにも休みはある。予定のない一日から始まる、短い休日の連作。</p>
+          <div class="episode-index">
+            <span class="episode-index-label">HOLIDAY / EPISODES</span>
+            <div class="episode-row">
+              <a href="./stories/holiday/holiday-01.html" class="episode-link">01.</a>
+              <a href="./stories/holiday/holiday-02.html" class="episode-link">02.</a>
+              <a href="./stories/holiday/holiday-03.html" class="episode-link">03.</a>
+              <a href="./stories/holiday/holiday-04.html" class="episode-link">04.</a>
+              <a href="./stories/holiday/holiday-05.html" class="episode-link">05.</a>
+              <a href="./stories/holiday/holiday-06.html" class="episode-link">06.</a>
+              <a href="./stories/holiday/holiday-07.html" class="episode-link">07.</a>
+              <a href="./stories/holiday/holiday-08.html" class="episode-link">08.</a>
+              <a href="./stories/holiday/holiday-09.html" class="episode-link latest">09.</a>
+              <span class="last-up">LAST UP — 09</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="series-work">
+          <h3 class="series-title">君のいる食卓</h3>
+          <p class="work-meta">KATSUKI BAKUGO / 11 EPISODES / COMPLETE</p>
+          <p class="series-summary">朝食、弁当、遅い夕飯。食事の時間だけを切り取って、二人の関係が変わっていくシリーズ。</p>
+          <div class="episode-index">
+            <span class="episode-index-label">TABLE / EPISODES</span>
+            <div class="episode-row">
+              <a href="./stories/table/table-01.html" class="episode-link">01.</a>
+              <a href="./stories/table/table-02.html" class="episode-link">02.</a>
+              <a href="./stories/table/table-03.html" class="episode-link">03.</a>
+              <a href="./stories/table/table-04.html" class="episode-link">04.</a>
+              <a href="./stories/table/table-05.html" class="episode-link">05.</a>
+              <a href="./stories/table/table-06.html" class="episode-link">06.</a>
+              <a href="./stories/table/table-07.html" class="episode-link">07.</a>
+              <a href="./stories/table/table-08.html" class="episode-link">08.</a>
+              <a href="./stories/table/table-09.html" class="episode-link">09.</a>
+              <a href="./stories/table/table-10.html" class="episode-link">10.</a>
+              <a href="./stories/table/table-11.html" class="episode-link latest">11.</a>
+              <span class="last-up">COMPLETE — 11 EPISODES</span>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </div>
